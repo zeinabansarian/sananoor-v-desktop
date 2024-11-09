@@ -1,0 +1,634 @@
+<basis core="dbsource" source="basiscore" mid="19" name="db" lid="1" usedforid="[##cms.query.id##]">
+    <member name="list5" type="list" request="groupid"></member>
+</basis>
+
+<!DOCTYPE html>
+<!--[if lte IE 8]> <html lang="en" class="ie10 ie9 ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie10 ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html lang="fa">
+<basis core="dbsource" source="basiscore" name="db" lid="1" mid="1" usedforid="[##cms.query.id##]">
+    <member type="view" name="article" />
+    <member type="view" name="article250" postsql="select * from [db.article250] where typeid = 250" />
+</basis>
+<basis core="dbsource" source="basiscore" name="db" lid="1" mid="1" usedforid="[##cms.query.id##]">
+    <member type="view" name="title" postsql="select * from [db.title] where typeid = 150" />
+</basis>
+
+
+<basis core="dbsource" source="media" name="db" lid="1" sourcemid="1" usedforid="[##cms.query.id##]">
+    <member type="list" name="gallery" />
+</basis>
+
+<basis core="dbsource" source="basiscore" name="db" lid="1" mid="1" usedforid="[##cms.query.id##]">
+    <member request="json-ld" type="scalar" name="json" />
+</basis>
+<basis core="dbsource" source="basiscore" name="db" lid="1" mid="1" usedforid="[##cms.query.id##]">
+    <member type="list" name="relatedarticle555" link="project.bc" size="372x230" propertyid="7227"
+        postsql=" select * from [db.relatedarticle555] where schemaid=555" blgid="222" />
+
+    <member type="list" name="relatedarticleex" link="project.bc" size="372x230" propertyid="7244" />
+    <member type="list" name="relatedarticle" link="project.bc" size="372x230" propertyid="7244"
+        postsql=" select * from [db.relatedarticle] where schemaid=1162" blgid="222" />
+
+</basis>
+<basis core="dbsource" source="basiscore" name="db" lid="1" mid="1" usedforid="[##cms.query.id##]">
+    <member type="list" name="plistfa" link="project.bc" size="533x299" blgid="1611" />
+</basis>
+<basis core="dbsource" source="basiscore" name="db" lid="2" mid="1" usedforid="[##cms.query.id##]">
+    <member type="list" name="plisten" link="project.bc" size="533x299" blgid="1611" />
+</basis>
+<basis core="inlinesource" name="db">
+    <member name="relatedplist" lefttblcol="db.plistfa.id" righttblcol="db.plisten.id" format="join"
+        jointype="leftjoin" />
+</basis>
+
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>[##cms.seo.title##]</title>
+    <meta name="description" content="[##cms.seo.description##]">
+    <basis core="call" file="styles.inc" />
+    <link rel="stylesheet" href="[##cms.cms.cdn##]/css/swiper-bundle.min.css" />
+</head>
+
+<body class=" default-page article_page" id="article_page">
+
+    <div class="wrapper ccm-page">
+
+
+        <basis core="call" file="header.inc" />
+        <main>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12"></div>
+                </div>
+            </div>
+            <div class="list-page work-page">
+
+                <div class="container-fluid full">
+                    <div class="row">
+
+                        <div class="project_gallery">
+                            <basis core="print" datamembername="db.gallery">
+                                <face filter="ord=1001">
+                                    <img src="[##cms.cms.cdn##]/@largeIMG" alt="@name" />
+                                </face>
+                            </basis>
+
+
+                        </div>
+                        <div class="article_tab_wrapper">
+                            <div class="article_share">
+                                <ul class="">
+                                    <li>
+                                        <svg width="14" height="16" viewBox="0 0 14 16" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M11.6667 16C11.0185 16 10.4676 15.7667 10.0139 15.3C9.56019 14.8333 9.33333 14.2667 9.33333 13.6C9.33333 13.5067 9.33982 13.4099 9.35278 13.3096C9.36574 13.2093 9.38519 13.1195 9.41111 13.04L3.92778 9.76C3.70741 9.96 3.46111 10.1168 3.18889 10.2304C2.91667 10.344 2.63148 10.4005 2.33333 10.4C1.68519 10.4 1.13426 10.1667 0.680556 9.7C0.226852 9.23333 0 8.66667 0 8C0 7.33333 0.226852 6.76667 0.680556 6.3C1.13426 5.83333 1.68519 5.6 2.33333 5.6C2.63148 5.6 2.91667 5.6568 3.18889 5.7704C3.46111 5.884 3.70741 6.04053 3.92778 6.24L9.41111 2.96C9.38519 2.88 9.36574 2.79013 9.35278 2.6904C9.33982 2.59067 9.33333 2.49387 9.33333 2.4C9.33333 1.73333 9.56019 1.16667 10.0139 0.7C10.4676 0.233333 11.0185 0 11.6667 0C12.3148 0 12.8657 0.233333 13.3194 0.7C13.7731 1.16667 14 1.73333 14 2.4C14 3.06667 13.7731 3.63333 13.3194 4.1C12.8657 4.56667 12.3148 4.8 11.6667 4.8C11.3685 4.8 11.0833 4.74347 10.8111 4.6304C10.5389 4.51733 10.2926 4.36053 10.0722 4.16L4.58889 7.44C4.61481 7.52 4.63426 7.61013 4.64722 7.7104C4.66019 7.81067 4.66667 7.9072 4.66667 8C4.66667 8.09333 4.66019 8.19013 4.64722 8.2904C4.63426 8.39067 4.61481 8.48053 4.58889 8.56L10.0722 11.84C10.2926 11.64 10.5389 11.4835 10.8111 11.3704C11.0833 11.2573 11.3685 11.2005 11.6667 11.2C12.3148 11.2 12.8657 11.4333 13.3194 11.9C13.7731 12.3667 14 12.9333 14 13.6C14 14.2667 13.7731 14.8333 13.3194 15.3C12.8657 15.7667 12.3148 16 11.6667 16Z"
+                                                fill="rgba(0, 0, 0, 0.54)" fill-opacity="1" />
+                                        </svg>
+
+
+                                    </li>
+                                    <li>
+  <a href="https://api.whatsapp.com/send?text=[##cms.request.host##]/[##db.list5.link##]"
+                                            title="whatsapp">
+                                        <svg width="15" height="16" viewBox="0 0 15 16" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M12.765 2.56055C12.0772 1.86582 11.258 1.31498 10.3551 0.94017C9.45224 0.565361 8.48375 0.37408 7.50616 0.377486C3.4101 0.377486 0.0717344 3.71585 0.0717344 7.81191C0.0717344 9.12475 0.416824 10.4001 1.06199 11.5254L0.0117188 15.3814L3.95024 14.3461C5.03802 14.9388 6.26084 15.2538 7.50616 15.2538C11.6022 15.2538 14.9406 11.9155 14.9406 7.81942C14.9406 5.8314 14.1679 3.96342 12.765 2.56055ZM7.50616 13.9935C6.39587 13.9935 5.30809 13.6934 4.35534 13.1308L4.13029 12.9958L1.78968 13.6109L2.41234 11.3303L2.2623 11.0978C1.64545 10.1127 1.31791 8.97415 1.31706 7.81191C1.31706 4.40603 4.09278 1.63031 7.49866 1.63031C9.14909 1.63031 10.702 2.27548 11.8648 3.44578C12.4405 4.0189 12.8968 4.7006 13.2072 5.45137C13.5175 6.20214 13.6758 7.00704 13.6728 7.81942C13.6878 11.2253 10.912 13.9935 7.50616 13.9935ZM10.897 9.37232C10.7095 9.2823 9.79425 8.83218 9.62921 8.76466C9.45667 8.70465 9.33663 8.67464 9.2091 8.85468C9.08157 9.04223 8.72898 9.46234 8.62395 9.58237C8.51892 9.70991 8.40639 9.72491 8.21884 9.62738C8.0313 9.53736 7.43114 9.33481 6.72596 8.70465C6.17081 8.20952 5.80322 7.60186 5.69069 7.41431C5.58566 7.22676 5.67569 7.12924 5.77321 7.03171C5.85573 6.94919 5.96076 6.81415 6.05078 6.70913C6.14081 6.6041 6.17832 6.52158 6.23833 6.40155C6.29835 6.27401 6.26834 6.16899 6.22333 6.07897C6.17832 5.98894 5.80322 5.0737 5.65318 4.69861C5.50314 4.33851 5.3456 4.38352 5.23307 4.37602H4.87298C4.74544 4.37602 4.55039 4.42103 4.37785 4.60858C4.21281 4.79613 3.73268 5.24625 3.73268 6.16149C3.73268 7.07672 4.40036 7.96195 4.49038 8.08198C4.5804 8.20952 5.80322 10.085 7.6637 10.8877C8.10632 11.0828 8.4514 11.1953 8.72147 11.2778C9.16409 11.4204 9.56919 11.3978 9.89178 11.3528C10.2519 11.3003 10.9946 10.9027 11.1446 10.4676C11.3021 10.0325 11.3021 9.6649 11.2496 9.58237C11.1971 9.49985 11.0846 9.46234 10.897 9.37232Z"
+                                                fill="rgba(0, 0, 0, 0.54)" fill-opacity="1" />
+                                        </svg>
+
+</a>
+                                    </li>
+
+
+                                    <li>
+           <a href="https://www.instagram.com/?url=https://[##cms.request.host##]/[##cms.request.rawurl##]"
+                                            title="instagram">
+                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M6.64685 9.92187C7.35428 9.92187 8.03273 9.64085 8.53296 9.14062C9.03318 8.6404 9.31421 7.96194 9.31421 7.25452C9.31421 6.54709 9.03318 5.86864 8.53296 5.36841C8.03273 4.86818 7.35428 4.58716 6.64685 4.58716C5.93942 4.58716 5.26097 4.86818 4.76074 5.36841C4.26052 5.86864 3.97949 6.54709 3.97949 7.25452C3.97949 7.96194 4.26052 8.6404 4.76074 9.14062C5.26097 9.64085 5.93942 9.92187 6.64685 9.92187Z"
+                                                stroke="rgba(0, 0, 0, 0.54)" stroke-opacity="1" stroke-width="1.12529"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                            <path
+                                                d="M0.645508 9.92184V4.58713C0.645508 3.70284 0.996788 2.85478 1.62207 2.22949C2.24735 1.60421 3.09542 1.25293 3.9797 1.25293H9.31442C10.1987 1.25293 11.0468 1.60421 11.6721 2.22949C12.2973 2.85478 12.6486 3.70284 12.6486 4.58713V9.92184C12.6486 10.8061 12.2973 11.6542 11.6721 12.2795C11.0468 12.9048 10.1987 13.256 9.31442 13.256H3.9797C3.09542 13.256 2.24735 12.9048 1.62207 12.2795C0.996788 11.6542 0.645508 10.8061 0.645508 9.92184Z"
+                                                stroke="rgba(0, 0, 0, 0.54)" stroke-opacity="1"
+                                                stroke-width="1.12529" />
+                                            <path d="M10.3145 3.595L10.3225 3.5862" stroke="rgba(0, 0, 0, 0.54)"
+                                                stroke-opacity="1" stroke-width="1.12529" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                        </svg>
+
+</a>
+                                    </li>
+                                    <li>
+       <a href="https://t.me/share/url?url=[##cms.request.host##]/[##db.list5.link##]&text=[##cms.request.rawurl##]"
+                                            title="telegram">
+                                        <svg width="14" height="12" viewBox="0 0 14 12" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M2.88952 7.26818C2.91698 7.27784 2.94522 7.28484 2.97388 7.2891C3.15468 7.73904 3.33446 8.18944 3.51322 8.64028C3.83466 9.45153 4.15865 10.2871 4.22959 10.5273C4.31841 10.823 4.41171 11.0241 4.51396 11.1618C4.567 11.232 4.62771 11.2941 4.69928 11.3413C4.73656 11.3659 4.77646 11.3859 4.81814 11.4007C5.02263 11.4817 5.20923 11.4479 5.32617 11.4068C5.3948 11.382 5.4601 11.348 5.52044 11.3055L5.52364 11.3042L7.32956 10.115L9.41602 11.8036C9.44669 11.8286 9.47992 11.8495 9.51571 11.8664C9.76621 11.9811 10.009 12.0216 10.2378 11.9892C10.4653 11.9555 10.6462 11.8549 10.781 11.7408C10.9358 11.609 11.0593 11.4408 11.1414 11.2495L11.1472 11.2347L11.1491 11.2293L11.1504 11.2266V11.2252C11.1615 11.1962 11.1707 11.1655 11.1766 11.1348L13.0809 0.994158C13.0869 0.961698 13.0899 0.928695 13.0898 0.89562C13.0898 0.598657 12.9838 0.315867 12.7352 0.145113C12.5217 -0.00134334 12.2847 -0.00809257 12.1345 0.00405592C11.9734 0.0175542 11.8239 0.059399 11.7236 0.0931448C11.6674 0.111945 11.612 0.133109 11.5574 0.156587L11.5504 0.159962L0.869526 4.58471L0.868248 4.58539C0.83211 4.59942 0.796509 4.61496 0.761528 4.63196C0.676832 4.67217 0.595585 4.72004 0.518694 4.77504C0.373633 4.87965 0.039416 5.16716 0.0962903 5.6423C0.141023 6.02026 0.386413 6.2531 0.536587 6.36514C0.618384 6.42656 0.696347 6.47043 0.75386 6.49945C0.779422 6.51295 0.834379 6.53589 0.858023 6.54669L0.864414 6.54872L2.88952 7.26818ZM11.9242 1.09135H11.923C11.9175 1.09393 11.9119 1.0964 11.9063 1.09877L1.21269 5.52959C1.20719 5.53194 1.20165 5.53419 1.19607 5.53634L1.18968 5.53837C1.17015 5.54648 1.15096 5.55548 1.13217 5.56536C1.14996 5.57612 1.16831 5.58581 1.18713 5.59439L3.19498 6.30845C3.23086 6.32122 3.26519 6.33844 3.29723 6.35974L9.92852 2.25963L9.93491 2.25625C9.96067 2.23972 9.98711 2.22441 10.0142 2.21036C10.0602 2.18538 10.1337 2.14894 10.2167 2.12194C10.2742 2.10305 10.4449 2.04973 10.6289 2.11249C10.7265 2.14499 10.8135 2.20583 10.88 2.28805C10.9464 2.37028 10.9896 2.47058 11.0047 2.57751C11.0285 2.67116 11.0291 2.76968 11.0066 2.86368C10.9618 3.04928 10.8392 3.19371 10.7273 3.3044C10.6315 3.39888 9.3879 4.66503 8.16158 5.91497L6.49178 7.61576L6.19463 7.91947L9.94706 10.9579C9.9977 10.9804 10.0527 10.9897 10.1075 10.9849C10.135 10.981 10.161 10.9688 10.1822 10.9498C10.2081 10.9267 10.2304 10.8994 10.248 10.8689L10.2493 10.8682L12.0961 1.03263C12.038 1.04741 11.9809 1.06681 11.9255 1.09067L11.9242 1.09135ZM6.51734 9.45625L5.76839 8.85018L5.5869 10.0684L6.51734 9.45625ZM5.08142 7.64748L5.8259 6.8882L7.49571 5.18606L8.11749 4.55299L3.95097 7.12914L3.97333 7.18449C4.23611 7.84012 4.49599 8.49705 4.75296 9.15524L4.93381 7.94039C4.95017 7.82772 5.00221 7.7249 5.08142 7.64748Z"
+                                                fill="rgba(0, 0, 0, 0.54)" fill-opacity="1" />
+                                        </svg>
+</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="clr"></div>
+                        </div>
+                        <div class="clr"></div>
+                        <div class="show_article">
+                            <h1>
+                                [##db.title.answer##]
+
+                            </h1>
+
+                            <p class="article_date">
+                                <basis core="print" datamembername="db.article">
+                                    <face filter="prpid  in (7249,7231)">
+                                        @Answer
+                                    </face>
+                                </basis>
+                            </p>
+
+
+                            <div class="blogShowContainer">
+                                <div class="para">
+
+                                    <basis core="print" datamembername="db.article">
+                                        <face filter="TypeID = 129">
+                                            @Answer
+                                        </face>
+                                    </basis>
+                                </div>
+                                <div class="midSec">
+                                    <div class="imgS">
+                                        <basis core="print" datamembername="db.gallery">
+
+                                            <face filter="ord=1002">
+                                                <img src="[##cms.cms.cdn##]/@largeIMG" alt="@name" title="@name">
+
+                                            </face>
+                                        </basis>
+                                    </div>
+                                    <div class="para">
+
+                                        <basis core="print" datamembername="db.article250">
+                                            <face filter="RowNumber=1">
+                                                @Answer
+                                            </face>
+                                        </basis>
+                                    </div>
+                                </div>
+                                <div class="para">
+
+                                    <basis core="print" datamembername="db.article250">
+                                        <face filter="RowNumber>1">
+                                            @Answer
+                                        </face>
+                                    </basis>
+                                </div>
+
+
+
+
+
+
+
+
+                                <div id="article_gallery">
+                                    <div class="swiper mySwiper1 blogmySwiper1">
+                                        <div class="swiper-wrapper">
+                                            <basis core="print" datamembername="db.gallery">
+                                                <face filter="ord=1000">
+
+                                                    <div class="swiper-slide" data-id="1">
+                                                        <img src="[##cms.cms.cdn##]/@largeIMG" alt="@name" />
+
+                                                    </div>
+                                                </face>
+                                            </basis>
+
+                                        </div>
+                                        <div class="button_wrapper">
+                                            <div class="swiper-scrollbar mySwiper1Scrollbar"></div>
+                                            <div class="swiper-pagination mySwiper1Pagination"></div>
+
+                                            <div class="arrowBtns">
+                                                <div class="next1">
+                                                    <svg width="17" height="30" viewBox="0 0 17 30" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M1 1L15 15L1 29" stroke="black" stroke-width="2" />
+                                                    </svg>
+
+                                                </div>
+                                                <div class="prev1">
+                                                    <svg width="17" height="30" viewBox="0 0 17 30" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M16 1L2 15L16 29" stroke="black" stroke-width="2" />
+                                                    </svg>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clr"></div>
+                <div id="article_part2">
+
+
+                    <div id="related_article1">
+                        <basis core="print" datamembername="db.relatedarticleex">
+                            <face filter="RowNumber=1">
+
+                                <p>
+                                    مقالات مرتبط
+                                </p>
+                            </face>
+                        </basis>
+                                 <div class="swiper mySwiper3">
+                                    <div class="swiper-wrapper">
+                        <basis core="print" datamembername="db.relatedarticle">
+                 
+                            <face>
+                                <div class="swiper-slide ">
+                                    <div class="article">
+                                        <a href="/@link"> <img src="[##cms.cms.cdn##]/@00372X00230prp"
+                                                alt="@title" /></a>
+                                        <div class="article_title">
+                                            <div class="article_title_wrapper">
+                                                <a href="/@link">@title</a>
+                                                <span>@cdate</span>
+                                            </div>
+                                            <p>
+                                                @prp_7244
+                                            </p>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </face>
+                        </basis>
+                        <basis core="print" datamembername="db.relatedarticle555">
+                 
+                            <face>
+                                <div class="swiper-slide ">
+                                    <div class="article">
+                                        <a href="/@link"> <img src="[##cms.cms.cdn##]/@00372X00230prp"
+                                                alt="@title" /></a>
+                                        <div class="article_title">
+                                            <div class="article_title_wrapper">
+                                                <a href="/@link">@title</a>
+                                                <span>@cdate</span>
+                                            </div>
+                                            <p>
+                                                @prp_7227
+                                            </p>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </face>
+                        </basis>
+       </div>
+
+                            <div class="blogNext">
+                            <svg width="58" height="58" viewBox="0 0 58 58" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect width="58" height="58" fill="#0E0E0E" />
+                                <path d="M22 14L36.5 28.5L22 43" stroke="#DBDBDB" />
+                            </svg>
+                        </div>
+                        <div class="blogPrev">
+                            <svg width="58" height="58" viewBox="0 0 58 58" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect width="58" height="58" fill="#0E0E0E" />
+                                <path d="M36.5 14L22 28.5L36.5 43" stroke="#DBDBDB" />
+                            </svg>
+                        </div>
+                                </div>
+
+                    </div>
+
+
+
+
+
+
+                    <div class="effect_gallery_wrapper related_project">
+                        <div id="related_article2">
+                            <basis core="print" datamembername="db.relatedplist">
+                                <layout>
+                            <p>
+                                پروژه های مشابه
+                            </p>
+                         
+                            
+
+
+                            <div class="swiper projectsearchSlider" dir="rtl">
+                                <div class="swiper-wrapper">
+
+
+                                            @child
+
+                                            
+                                </div>
+                
+                                <div class="projectNext">
+                                    <svg width="17" height="32" viewBox="0 0 17 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1 1L16 16L1 31" stroke="white"/>
+                                        </svg>
+                                        
+                                </div>
+                                <div class="projectPrev">
+                                    <svg width="17" height="32" viewBox="0 0 17 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16 1L1 16L16 31" stroke="white"/>
+                                        </svg>
+                                        
+                                </div>
+                            </div>
+                                        </layout>
+                                        <face>
+                                            <div class="swiper-slide">
+                                                <a href="/@db.plistfa.link" title="@db.plistfa.title">
+                                                    <div class="imgS">
+                                                        <img src="/@db.plistfa.00533X00299prp" alt="@db.plistfa.title" title="@db.plistfa.title" />
+                                                    </div>
+                                                    <div class="title">
+                                                        <h2>@db.plisten.title</h2>
+                                                        <h1> @db.plistfa.title </h1>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            
+                                        </face>
+                                    </basis>
+                           
+
+
+
+                        </div>
+                    </div>
+
+                    <div class="contact_us_wrapper project_view_contactus">
+                        <p>
+                            ار تباط با ما
+                        </p>
+                        <div>
+                            <basis core='callback' run='AtClient' method='onSource' triggers='form.result'></basis>
+                            <basis core='api' if='{##edit.object|(false)##}' run='AtClient'
+                                url='/schema/9BEB7BBE-A7C0-44D5-93AA-8CBA286F16FA/fa/editobject' method='post'
+                                body='object_edit={##edit.object.value##}&captcha={##edit.object.captcha##}&captchaid={##edit.object.captchaid##}'
+                                content-type='application/x-www-form-urlencoded' triggers='edit.object'
+                                onprocessed='OnProcessedEditObject'></basis>
+                            <basis core="dbsource" name="captcha" run="AtClient" source="trust_login"
+                                triggers="db.refresh">
+                                <member name="code" type="scalar" request="captcha"></member>
+                            </basis>
+                            <basis core="schema" run="atclient"
+                                schemaUrl="http://www.freeform.ir/schema/domainform/237558FA-9508-4D6E-A723-67EC3F8E80D5/021FAACB-B108-4DF7-851E-A141F819CE42/fa/businessForm"
+                                displayMode="new" button="[data-btn-add]" resultSourceId="form.result"
+                                onRendered="schemareview"></basis>
+                            <div class="captcha_wrapper" id="captchaContainer">
+                                <div class="captcha">
+                                    <basis core='print' run='AtClient' datamembername='captcha.code'>
+                                        <face>
+                                            <script type="text/template">
+
+                                        <img src="@captcha@" width="88" alt=" فرم ار تباط با ما" />
+                                        <input type="hidden" name="captchaid" value="@captcha@" />
+                                        </script>
+                                        </face>
+                                    </basis>
+                                    <div class="refresh_btn" onclick="refresh()">
+                                        <svg width="49" height="36" viewBox="0 0 49 36" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M24.6159 35.6683C19.684 35.6683 15.4882 33.9568 12.0285 30.5339C8.56873 27.111 6.83887 22.9336 6.83887 18.0016V17.6152L3.30553 21.1485L0.213867 18.0568L9.0472 9.2235L17.8805 18.0568L14.7889 21.1485L11.2555 17.6152V18.0016C11.2555 21.6822 12.5529 24.8106 15.1477 27.387C17.7425 29.9634 20.8986 31.2516 24.6159 31.2516C25.5729 31.2516 26.5114 31.1412 27.4316 30.9204C28.3517 30.6995 29.2535 30.3683 30.1368 29.9266L33.4493 33.2391C32.0507 34.0488 30.6153 34.6561 29.143 35.061C27.6708 35.4659 26.1618 35.6683 24.6159 35.6683ZM39.9639 26.7797L31.1305 17.9464L34.2222 14.8547L37.7555 18.3881V18.0016C37.7555 14.3211 36.4581 11.1926 33.8633 8.61621C31.2686 6.03982 28.1125 4.75163 24.3951 4.75163C23.4382 4.75163 22.4996 4.86204 21.5795 5.08288C20.6594 5.30371 19.7576 5.63496 18.8743 6.07663L15.5618 2.76413C16.9604 1.95441 18.3958 1.34711 19.868 0.942252C21.3403 0.537391 22.8493 0.334961 24.3951 0.334961C29.3271 0.334961 33.5229 2.04642 36.9826 5.46933C40.4423 8.89225 42.1722 13.0697 42.1722 18.0016V18.3881L45.7055 14.8547L48.7972 17.9464L39.9639 26.7797Z"
+                                                fill="#818181" />
+                                        </svg>
+
+                                    </div>
+                                    <div>
+                                        <input type="text" name="captcha" class="captcha_input"
+                                            placeholder="عبارت امنیتی را وارد نمایید" />
+                                    </div>
+                                </div>
+                                <button data-btn-add="">ثبت</button>
+                                <div id="message"></div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+        </main>
+        <basis core="call" file="footer.inc" />
+
+
+    </div>
+    <script type="application/ld+json">
+        [##db.json.Column1##]
+         </script>
+
+    <script src="[##cms.cms.cdn##]/js/jquery.js"></script>
+    <script src="https://cdn.basiscore.net/basispanel.ir/_js/basiscore-2.30.3.js"></script>
+    <script src="[##cms.cms.cdn##]/js/splide.min.js"></script>
+    <script src="[##cms.cms.cdn##]/js/swiper.js"></script>
+
+    <script>
+        const menu = document.getElementById("menu_wrapper")
+        body = document.getElementsByTagName('body')[0],
+            menu.style.transform = `translateX(${body.clientWidth}px)`
+        function openMenu() {
+            menu.style.transform = `translateX(0)`
+        }
+        function closeMenu() {
+            menu.style.transform = `translateX(${body.clientWidth}px)`
+        }
+
+        const searchBox = document.getElementById("search_wrapper_body")
+        body = document.getElementsByTagName('body')[0],
+            searchBox.style.transform = `translateX(${body.clientWidth}px)`
+        function openSearch() {
+            console.log("sss", searchBox)
+            searchBox.style.transform = `translateX(0)`
+        }
+        function closeSearch() {
+            searchBox.style.transform = `translateX(${body.clientWidth}px)`
+        }
+        var host = {
+            debug: false,
+            settings: {
+                // 'connection.web.callcommand':'https://manzoomeh.ir/',
+                // 'connection.web.callcommand':'http://127.0.0.1:5500/', 
+                'connection.web.hosting': 'https://basispanel.ir/apicms',
+                "connection.web.trust_login": "https://basispanel.ir/apicms",
+                'connection.web.accounting': 'https://basispanel.ir/apicms',
+                'default.dbsource.verb': 'post',
+                'default.call.verb': 'get',
+                'default.viewCommand.groupColumn': 'prpid',
+                'default.dmnid': '4798',
+                'default.binding.regex': '\\{##([^#]*)##\\}'
+
+            }
+        }
+
+        const projectsearchSlider = new Swiper('.projectsearchSlider', {
+    slidesPerView: 2,
+    // loop: true,
+    navigation: {
+        nextEl: '.projectNext',
+        prevEl: '.projectPrev',
+      },
+  spaceBetween: 194,
+  centeredSlides:false,
+});
+
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 1,
+            centeredSlides: false,
+            spaceBetween: 30,
+            loop: true,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+        var swiper1 = new Swiper(".mySwiper1", {
+            slidesPerView: 1,
+            centeredSlides: false,
+            spaceBetween: 30,
+            loop: true,
+            navigation: {
+                nextEl: ".next1",
+                prevEl: ".prev1",
+            },
+            scrollbar: {
+                el: '.mySwiper1Scrollbar',
+                draggable: true,
+            },
+
+            pagination: {
+                el: '.mySwiper1Pagination',
+                type: 'custom',
+                renderCustom: function (swiper, current, total) {
+                    return current;
+                }
+            }
+
+
+        });
+
+
+        const swiper2 = new Swiper('.mySwiper2', {
+            slidesPerView: 1,
+            centeredSlides: false,
+            spaceBetween: 30,
+            loop: true,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+
+        });
+
+        const mySwiper3 = new Swiper('.mySwiper3', {
+            slidesPerView: 2.4,
+            centeredSlides: false,
+            spaceBetween: 30,
+            loop: false,
+            navigation: {
+                nextEl: ".blogNext",
+                prevEl: ".blogPrev",
+            },
+
+        });
+
+
+
+        function schemareview() {
+            const questions = document.querySelectorAll("[data-bc-question]")
+            questions.forEach(e => {
+                e.querySelector("[data-bc-text-input]").setAttribute("placeHolder", e.querySelector("[data-bc-question-title]").textContent)
+                let title = e.querySelector("[data-bc-title-container]")
+                title.style.display = "none"
+            })
+
+        }
+        function nextSlider() {
+            // alert("ok")
+            const wrapper = document.querySelector(".mySwiper1")
+            const active = wrapper.querySelector(".swiper-slide-active")
+            const activeslide = active.getAttribute("data-id")
+            const slides = wrapper.querySelectorAll(".swiper-slide")
+            const slideLenth = parseInt(activeslide) + 1
+            const bars = document.querySelectorAll(".bar")
+            document.querySelector(".slide_number").textContent = parseInt(activeslide) + 1
+
+            bars.forEach(element => {
+                element.classList.remove("active")
+            });
+            for (var i = 0; i < slideLenth; i++) {
+                bars[i].classList.add("active")
+            }
+
+        }
+
+        function refresh() {
+            $bc.setSource("db.refresh", true)
+        }
+        function onSource(args) {
+
+            const loader = document.createElement("div")
+            loader.classList.add("loader")
+            document.querySelector("[data-btn-add]").appendChild(loader)
+            const captcha = document.querySelector("#captchaContainer input[name='captcha']").value;
+            const captchaid = document.querySelector("#captchaContainer input[name='captchaid']").value;
+            const stringJson = JSON.stringify(args.source?.rows[0]);
+            $bc.setSource('edit.object', {
+                value: stringJson,
+                captcha: captcha,
+                captchaid: captchaid
+            })
+        }
+        async function OnProcessedEditObject(args) {
+            var response = args.response;
+            var json = await response.json();
+
+            if (json.errorid == 6) {
+                // document.getElementById("message").style.display="block"
+                document.getElementById("message").textContent = "درخواست شما با موفقیت ثبت شد"
+                // document.getElementById("modal-box3").style.display="block"
+                $bc.setSource("db.renews", true)
+            }
+            else {
+                document.getElementById("message").textContent = "خطا در انجام عملیات"
+            }
+            document.querySelector(".loader").remove()
+        }
+    </script>
+
+
+
+</body>
+
+</html>

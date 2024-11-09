@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/newBlog.css">
+</head>
+<body>
+    <div class="newblogList">
+        <div class="blogListContainer">
+            <div class="filterBtns">
+                <ul>
+             
+                    <li>
+                        <div class="imgS">
+                            <img src="images/akhbar.svg" alt="@title" title="@title">
+                        </div>
+                        <h2>
+                            همه
+                        </h2>
+                    </li>
+                    <li>
+                        <div class="imgS">
+                            <img src="images/maghale.svg" alt="@title" title="@title">
+                        </div>
+                        <h2>
+                            همه
+                        </h2>
+                    </li>
+                </ul>
+            </div>
+            <div class="blogListBoxContainer">
+                <div class="blogBox">
+                    <a href="" title="@title">
+                        <div class="imgS">
+                            <img src="images/Frame 15824.jpg" alt="@title" title="@title">
+                        </div>
+                        <div class="details">
+                            <div class="blogTitle">
+                                <h1>
+                                    معماری مراکز خرید سنگاپور
+                                </h1>
+                                <span>
+                                    2 دیماه 1402
+                                </span>
+                            </div>
+                            <div class="para">
+                                <p>
+
+                                    مرکز خرید مارینا مندرین یکی از سه مکان در ساحل مارینا است که با معماری منحصر به فرد خود توریست‌های زیادی را فارغ از خرید ...
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery.2.2.2.min.js"></script>
+    <script>
+        let filterBtns = document.querySelectorAll(".filterBtns li")
+        filterBtns[0].classList.add("activeList")
+        filterBtns.forEach(element => {
+            element.addEventListener("click" , function(params) {
+                $(".filterBtns li").removeClass("activeList")
+                element.classList.add("activeList")
+            })
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+@font-face {
+    font-family: IRANSansWeb;
+    src: url("https://cdn.basiscore.net/_fonts/IRANSansWeb(FaNum).eot");
+    src: url("https://cdn.basiscore.net/_fonts/IRANSansWeb(FaNum).eot") format("embedded-opentype"), url("https://cdn.basiscore.net/_fonts/IRANSansWeb(FaNum).woff") format("woff"),
+        url("https://cdn.basiscore.net/_fonts/IRANSansWeb(FaNum).ttf") format("truetype");
+        font-weight: 400;
+        
+}
+
+footer{
+    position: relative;
+    width: 400px;
+    display: flex!important;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    .midSection{
+        margin-top: 80px;
+    }
+    .backImg{
+        position: absolute;
+        top: 0;
+        z-index: -1;
+    }
+    .logoFooter{
+        position: relative;
+    }
+    .logoFooter::after{
+        content: "";
+        width: 100%;
+        height: 1px;
+        background-color: #CFA85C;
+        bottom: -10px;
+        position: absolute;
+        left: 0;
+        right: 0;
+    }
+    .socials{
+        margin-top: 50px;
+        li{
+            text-align: center;
+            margin-bottom: 17px;
+        }
+    }
+    .footerCopy{
+        position: absolute;
+        bottom: 31px;
+        right: 0;
+        left: 0;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        column-gap: 10px;
+        p{
+            font-family: IRANSansWeb;
+font-size: 10px;
+font-weight: 400;
+line-height: 22.87px;
+text-align: right;
+color: white;
+direction: rtl;
+        }
+    }
+
+}

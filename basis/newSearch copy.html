@@ -1,0 +1,171 @@
+<basis core="dbsource" name="db" source="basiscore" lid="1" mid="1" catid="208633">
+    <member name="BlogList" type="list" size="372x230" propertyid="7244"
+        postsql=" select * from [db.BlogList] where title like '%[##cms.query.q##]%'" />
+</basis>
+<basis core="dbsource" source="basiscore" name="db" lid="1" mid="19" catid="[##cms.query.catid|(208273)##]">
+    <member type="list" name="plistfa" link="project.bc" size="533x299"
+        postsql=" select * from [db.plistfa] where title like '%[##cms.query.q##]%'" />
+</basis>
+<basis core="dbsource" source="basiscore" name="db" lid="2" mid="19" catid="[##cms.query.catid|(208273)##]">
+    <member type="list" name="plisten" postsql=" select * from [db.plisten] where title like '%[##cms.query.q##]%'" />
+</basis>
+<basis core="inlinesource" name="db">
+    <member name="plist" lefttblcol="db.plistfa.id" righttblcol="db.plisten.id" format="join" jointype="leftjoin" />
+</basis>
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <link rel="stylesheet" href="[##cms.cms.cdn##]/css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="[##cms.cms.cdn##]/css/newSearch.css" />
+    <basis core="call" file="styles.inc" />
+    <title>نتیجه جستجو برای [##cms.query.q##]</title>
+</head>
+
+<body>
+    <div class="searchPage">
+        <basis core="call" file="header.inc" />
+        <basis core="group" if="'[##db.BlogList.RowNumber##]' = '' and '[##db.plist.RowNumber##]' = '' ">
+            <div class="notFoundPage">
+                <div class="backImg">
+                    <img src="[##cms.cms.cdn##]/images/bacLogoImg.png" alt="sananoor" title="sananoor" />
+                </div>
+                <div class="searchFormPage notFoundForm">
+                    <form role="search" id="searchform" action="/search.bc" method="get" class="radius-xl">
+                        <div class="buttonSearch">
+                            <button type="submit" name="buttonSearch" title="buttonSearch">
+                                <svg width="23" height="23" viewBox="0 0 23 23" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M9.35156 0.578125C4.36806 0.578125 0.328125 4.61806 0.328125 9.60156C0.328125 14.5851 4.36806 18.625 9.35156 18.625C11.5339 18.625 13.5353 17.8503 15.0957 16.5609L21.205 22.6702C21.5406 23.0058 22.0847 23.0058 22.4203 22.6702C22.7559 22.3346 22.7559 21.7904 22.4203 21.4548L16.311 15.3455C17.6003 13.7851 18.375 11.7838 18.375 9.60156C18.375 4.61806 14.3351 0.578125 9.35156 0.578125ZM2.04688 9.60156C2.04688 5.5673 5.3173 2.29688 9.35156 2.29688C13.3858 2.29688 16.6562 5.5673 16.6562 9.60156C16.6562 13.6358 13.3858 16.9062 9.35156 16.9062C5.3173 16.9062 2.04688 13.6358 2.04688 9.60156Z"
+                                        fill="white" />
+                                </svg>
+                            </button>
+                        </div>
+                        <input name="q" type="search" class="searchInput" placeholder="جست و جو کنید..." />
+                    </form>
+                </div>
+                <div class="notFoundTxt">
+                    <div class="para">
+                        <p>باعرض پوزش مطلبی پیدا نشد.واژه دیگری را جست و جو نمایید.</p>
+                    </div>
+                </div>
+            </div>
+        </basis>
+
+        <div class="foundSearchContainer">
+            <basis core="group" if="'[##db.BlogList.RowNumber##]' <> '' or '[##db.plist.RowNumber##]' <> '' ">
+                <div class="searchFormPage">
+                    <form role="search" id="searchform" action="/search.bc" method="get" class="radius-xl">
+                        <div class="buttonSearch">
+                            <button type="submit" name="buttonSearch" title="buttonSearch">
+                                <svg width="23" height="23" viewBox="0 0 23 23" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M9.35156 0.578125C4.36806 0.578125 0.328125 4.61806 0.328125 9.60156C0.328125 14.5851 4.36806 18.625 9.35156 18.625C11.5339 18.625 13.5353 17.8503 15.0957 16.5609L21.205 22.6702C21.5406 23.0058 22.0847 23.0058 22.4203 22.6702C22.7559 22.3346 22.7559 21.7904 22.4203 21.4548L16.311 15.3455C17.6003 13.7851 18.375 11.7838 18.375 9.60156C18.375 4.61806 14.3351 0.578125 9.35156 0.578125ZM2.04688 9.60156C2.04688 5.5673 5.3173 2.29688 9.35156 2.29688C13.3858 2.29688 16.6562 5.5673 16.6562 9.60156C16.6562 13.6358 13.3858 16.9062 9.35156 16.9062C5.3173 16.9062 2.04688 13.6358 2.04688 9.60156Z"
+                                        fill="white" />
+                                </svg>
+                            </button>
+                        </div>
+                        <input name="q" type="search" class="searchInput" placeholder="جست و جو کنید..." />
+                    </form>
+                </div>
+            </basis>
+            <basis core="print" datamembername="db.plist">
+                <layout>
+                    <div class="projectfoundTxt">
+                        <div class="para">
+                            <p>نتایچ جست و جو در پروژه ها:</p>
+                        </div>
+                    </div>
+                    <div class="swiper projectsearchSlider" dir="rtl">
+                        <div class="swiper-wrapper">@child</div>
+
+                        <div class="projectNext">
+                            <svg width="17" height="32" viewBox="0 0 17 32" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 1L16 16L1 31" stroke="white" />
+                            </svg>
+                        </div>
+                        <div class="projectPrev">
+                            <svg width="17" height="32" viewBox="0 0 17 32" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 1L1 16L16 31" stroke="white" />
+                            </svg>
+                        </div>
+                    </div>
+                </layout>
+                <face>
+                    <div class="swiper-slide">
+                        <a href="/@db.plistfa.link" title="@db.plistfa.title">
+                            <div class="imgS">
+                                <img src="/@db.plistfa.00533X00299prp" alt="@db.plistfa.title"
+                                    title="@db.plistfa.title" />
+                            </div>
+                            <div class="title">
+                                <h2>@db.plisten.title</h2>
+                                <h1>@db.plistfa.title</h1>
+                            </div>
+                        </a>
+                    </div>
+                </face>
+            </basis>
+            <basis core="print" datamembername="db.BlogList">
+                <layout>
+                    <div class="blogfoundTxt">
+                        <div class="para">
+                            <p>نتایچ جست و جو در بلاگ:</p>
+                        </div>
+                    </div>
+                    <div class="swiper blogsearchSlider" dir="rtl">
+                        <div class="swiper-wrapper">@child</div>
+                        <div class="blogNext">
+                            <svg width="58" height="58" viewBox="0 0 58 58" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect width="58" height="58" fill="#0E0E0E" />
+                                <path d="M22 14L36.5 28.5L22 43" stroke="#DBDBDB" />
+                            </svg>
+                        </div>
+                        <div class="blogPrev">
+                            <svg width="58" height="58" viewBox="0 0 58 58" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect width="58" height="58" fill="#0E0E0E" />
+                                <path d="M36.5 14L22 28.5L36.5 43" stroke="#DBDBDB" />
+                            </svg>
+                        </div>
+                    </div>
+                </layout>
+                <face>
+                    <div class="swiper-slide">
+                        <div class="blogBox">
+                            <a href="/@link" title="@title">
+                                <div class="imgS">
+                                    <img src="/@00372X00230prp" alt="@title" title="@title" />
+                                </div>
+                                <div class="details">
+                                    <div class="blogTitle">
+                                        <h1>@title</h1>
+                                        <span> @date </span>
+                                    </div>
+                                    <div class="para">
+                                        <p>@prp_7244</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </face>
+            </basis>
+        </div>
+        <basis core="call" file="footer.inc" />
+    </div>
+    <script src="[##cms.cms.cdn##]/_js/swiper4.7.js"></script>
+    <script src="[##cms.cms.cdn##]/js/newSearch.js"></script>
+</body>
+
+</html>

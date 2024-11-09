@@ -1,0 +1,138 @@
+<basis core="dbsource" source="basiscore" name="db" lid="1" request="seo">
+    <member name="list" type="list" request="cat" id="[##cms.query.catid##]"></member>
+</basis>
+<basis core="dbsource" source="basiscore" name="db" lid="1" mid="1" >
+    <member request="cat" type="tree" name="filter"  parentid="208633" ></member>
+   </basis>
+   <basis core="dbsource" name="db" source="basiscore" lid="1" mid="1" catid="208633">
+    <member name="BlogList" type="list" size="372x230" propertyid="7244"
+        postsql=" select *, SUBSTR(prp_7244, 1,200-CHARINDEX(' ', REVERSE(SUBSTR(prp_7244, 1, 200)))) || '...' as substr from [db.BlogList]"/>
+</basis>
+
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <basis core="print" datamembername="db.list">
+        <face>
+            <title>[##cms.seo.title|db.list.title##]</title>
+            <meta name="description" content="[##cms.seo.description|db.list.description##]" />
+        </face>
+    </basis>
+    <basis core="call" file="styles.inc" />
+    <link rel="stylesheet" href="css/newBlog.css">
+</head>
+<body>
+    <div class="newblogList">
+        <basis core="call" file="header.inc" />
+
+        <div class="blogListContainer">
+            <div class="filterBtns">
+                <ul>
+             <basis core="print" datamembername="db.filter">
+
+                 <face>
+                     <li class="filterBt" data-blog="/load-blog.bc?catid=@catid&refresh=true">
+                         <div class="imgS">
+                             <img src="[##cms.cms.cdn##]/images/@catid.png" alt="@title" title="@title">
+                         </div>
+                         <h2>
+                            @title
+                         </h2>
+                     </li>
+                     
+                 </face>
+             </basis>
+                 
+                </ul>
+            </div>
+            <div class="blogListBoxContainer">
+                <basis core="print" datamembername="db.BlogList">
+               
+                        <layout>
+                            @child
+                        </layout>
+                        <else-layout>
+                               <p>
+                            مقاله ای موجود نیست.
+                        </p>
+                        </else-layout>
+                 
+                    <face>
+                        
+                        <div class="blogBox">
+                            <a href="/@link" title="@title">
+                                <div class="imgS">
+                                    <img src="/@00372X00230prp" alt="@title" title="@title">
+                                </div>
+                                <div class="details">
+                                    <div class="blogTitle">
+                                        <h1>
+                                           @title
+                                        </h1>
+                                        <span>
+                                          @date
+                                        </span>
+                                    </div>
+                                    <div class="para">
+                                        <p>
+        
+@substr
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </face>
+                </basis>
+            </div>
+        </div>
+        <basis core="call" file="footer.inc" />
+    </div>
+    <script src='[##cms.cms.cdn##]/_js/jquery/jquery-3.6.3.min.js'></script>
+
+    <script>
+
+
+    $(document).ready(function () {
+    $(".filterBt").click(function (e) {
+    var url4 = $(this).attr("data-blog");
+    $(".blogListBoxContainer").load(url4);
+    });
+    });
+
+
+
+            const menu = document.getElementById("menu_wrapper")
+        body = document.getElementsByTagName('body')[0],
+        menu.style.transform = `translateX(${body.clientWidth}px)`
+        function openMenu(){
+            menu.style.transform = `translateX(0)`
+        }
+        function closeMenu(){
+            menu.style.transform = `translateX(${body.clientWidth}px)`
+        }   
+        
+    const searchBox = document.getElementById("search_wrapper_body")
+        body = document.getElementsByTagName('body')[0],
+        searchBox.style.transform = `translateX(${body.clientWidth}px)`
+        function openSearch(){
+            console.log("sss",searchBox)
+            searchBox.style.transform = `translateX(0)`
+        }
+        function closeSearch(){
+            searchBox.style.transform = `translateX(${body.clientWidth}px)`
+        }   
+
+        let filterBtns = document.querySelectorAll(".filterBtns li")
+        filterBtns[0].classList.add("activeList")
+        filterBtns.forEach(element => {
+            element.addEventListener("click" , function(params) {
+                $(".filterBtns li").removeClass("activeList")
+                element.classList.add("activeList")
+            })
+        });
+    </script>
+</body>
+</html>

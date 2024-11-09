@@ -1,0 +1,91 @@
+<basis core="dbsource" source="basiscore" name="db" lid="1" request="seo">
+    <member name="list" type="list" request="cat" id="[##cms.query.catid##]"></member>
+</basis>
+<basis core="dbsource" source="basiscore" mid="19" name="db" lid="1">
+    <member name="projectCat" type="tree" request="cat" parentid="208272" postsql="select * from [db.projectCat] where catid<>208272"/> 
+</basis>
+<basis core="dbsource" name="db" source="media" lid="1" sourcemid="1" usedforid="2355021">
+  <member name="project-video" type="list" format="3"/>
+ </basis>
+
+    <basis core="inlinesource" name="db">
+        <member  name="plist" lefttblcol="db.project-video.RowNumber" righttblcol="db.projectCat.RowNumber" format="join" jointype="leftjoin" />
+       </basis>
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <basis core="print" datamembername="db.list">
+        <face>
+            <title>[##cms.seo.title|db.list.title##]</title>
+            <meta name="description" content="[##cms.seo.description|db.list.description##]" />
+        </face>
+    </basis>
+    <basis core="call" file="styles.inc" />
+
+    <link rel="stylesheet" href="[##cms.cms.cdn##]/css/productCat.css" />
+</head>
+
+<body class="productCatbody">
+    <basis core="call" file="header.inc" />
+    <div class="productCat">
+        <div class="productCatContainer">
+            <basis core="print" datamembername="db.plist">
+                <face>
+                    <div class="catBOx">
+                        <a href="/@db.projectCat.link">
+                            <div class="inVideo">
+                                <video playsinline muted autoplay loop>
+                                    <source src="/@db.project-video.largeIMG" />
+                                </video>
+                            </div>
+                            <div class="overTitle">
+                                <h1>@db.projectCat.title</h1>
+                                <div class="proCatlink">
+                                    <div class="proCatline">
+                                        <span></span>
+                                        <i></i>
+                                    </div>
+                                    <h2>
+                                        مشاهده
+                                    </h2>
+                                </div>
+                            </div>
+        
+                        </a>
+                    </div>
+                    
+                </face>
+            </basis>
+            
+        </div>
+    </div>
+
+    <script>     
+        const menu = document.getElementById("menu_wrapper")
+        body = document.getElementsByTagName('body')[0],
+        menu.style.transform = `translateX(${body.clientWidth}px)`
+        function openMenu(){
+            menu.style.transform = `translateX(0)`
+        }
+        function closeMenu(){
+            menu.style.transform = `translateX(${body.clientWidth}px)`
+        }   
+        
+    const searchBox = document.getElementById("search_wrapper_body")
+        body = document.getElementsByTagName('body')[0],
+        searchBox.style.transform = `translateX(${body.clientWidth}px)`
+        function openSearch(){
+            console.log("sss",searchBox)
+            searchBox.style.transform = `translateX(0)`
+        }
+        function closeSearch(){
+            searchBox.style.transform = `translateX(${body.clientWidth}px)`
+        }   
+
+    </script>
+</body>
+
+</html>

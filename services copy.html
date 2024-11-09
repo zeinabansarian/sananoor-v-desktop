@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<!--[if lte IE 8]> <html lang="en" class="ie10 ie9 ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie10 ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html lang="fa">
+    <basis core="dbsource" source="basiscore" name="db" lid="1" mid="1" usedforid="2353926" >
+        <member type="view" name="service" preview="" postsql="select * from [db.service] where prpID in (7246) " />
+    </basis>
+    <basis core="dbsource" source="basiscore" name="db" lid="1" mid="1" usedforid="2353926" >
+        <member type="list" name="relatedarticle" preview="true" blgid="222" size="430x260" link="article.bc" propertyid="7244" />
+    </basis>
+    <basis core="dbsource" source="basiscore" name="db" lid="1" mid="1" usedforid="2353926" >
+        <member type="list" name="relatedproject" preview="" link="project.bc" blgid="1611"  size="533x299" />
+    </basis>
+    <basis core="dbsource" source="basiscore" name="db" lid="1" mid="1" usedforid="2353926" >
+        <member request="json-ld" type="scalar" name="json"  />
+    </basis>
+<head>
+
+    <title>خدمات</title>   
+    <meta name="description" content="">  
+    <basis core="call" file="styles.inc" />
+    <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+        <style>
+            .list-page{
+                margin-bottom: 0 !important;
+                padding-bottom : 0 !important;
+                margin-top: 0 !important;
+            }
+            .colleagesSlider  .swiper-slide  {
+                margin-left: 80px;
+            }
+        </style>
+</head>
+
+<body class=" default-page">
+ 
+    <div class="">
+
+       <basis core="call" file="menu.inc" />
+        <header class="services_header">
+            <nav class="navbar">
+                <div class="container">
+                    <div class="navbar-header">
+                        <a href="/">
+                        <img src="images/logo-end.png" />
+                        </a>
+                    </div>
+                    <div id="navbar" class="collapse navbar-collapse pull-right">
+                        <ul class="nav">
+                            <li  class="menu_itemn" onclick="openMenu()">
+                                <svg width="51" height="18" viewbox="0 0 51 18" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <line y1="1" x2="51" y2="1" stroke="white" stroke-width="2" />
+                                    <line y1="9" x2="26" y2="9" stroke="white" stroke-width="2" />
+                                    <line y1="17" x2="51" y2="17" stroke="white" stroke-width="2" />
+                                </svg>
+
+                            </li>
+
+                        
+                            <li class="nav-path-selected">
+                                <a href="/project-list.bc" target="_self"
+                                    class="nav-path-selected">پروژه‌ها</a>
+                            </li>
+                            <li class="">
+                                <a href="/services.bc" target="_self" class="">خدمات</a>
+                            </li>
+                            <li class="">
+                                <svg width="18" height="18" viewbox="0 0 18 18" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M13.92 13.92L17 17M16.111 8.581C16.111 12.768 12.728 16.162 8.556 16.162C4.383 16.162 1 12.768 1 8.582C1 4.393 4.383 1 8.555 1C12.728 1 16.111 4.394 16.111 8.581Z"
+                                        stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </nav>
+            <div class="vertical_line"></div>
+            <div class="slides services_slide">
+                <ul>
+                    <basis core="print" datamembername="db.service">
+                        <face filter="rownumber = 1">
+                            <li data-num="@RowNumber" class="active" onclick="sliderAbout(this)">
+                                <span>
+                                    @text
+                                </span>
+                            </li>
+                         
+                        </face>
+                        <face filter="rownumber <> 1">
+                            <li data-num="@RowNumber" class="" onclick="sliderAbout(this)">
+                                <span>
+                                    @text
+                                </span>
+                            </li>
+                            </face>
+
+                    </basis>
+                  
+                  
+                </ul>
+                <div class="wrapper">
+
+                    <basis core="print" datamembername="db.service">
+                        <face filter="rownumber = 1">
+                            <div class="slide active " data-num="0">
+
+                                <div class="box">
+                                    <p>
+                                        @largetext
+                                    </p>
+                                </div>
+                            </div>
+                        </face>
+                        <face filter="rownumber <> 1">
+                            <div class="slide" data-num="0">
+
+                                <div class="box">
+                                    <p>
+                                        @largetext
+                                    </p>
+                                </div>
+                            </div>
+                        </face>
+                    </basis>
+                  
+
+                    
+                </div>
+
+            </div>
+         
+        </header>
+        <div class="clr"></div>
+        <main>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12"></div>
+                </div>
+            </div>
+            <div class="list-page work-page">
+                <div class="clr"></div>
+              <div class="service_contact_us">
+                <div class="contact_us_wrapper">
+                    <p>
+                        فرم درخواست خدمات
+                    </p>
+                    <div>
+                        <basis core="schema" run="atclient"
+                            schemaUrl="http://www.freeform.ir/schema/freeform/EB706022-309A-4495-A776-309736101E96/384E3E15-49D4-44A4-9F93-7E65F993B48F/fa/sananoor_request"
+                            displayMode="new" button="[data-btn-add]" resultSourceId="form.result"
+                            onRendered="schemareview"></basis>
+                            <div class="captcha_wrapper">
+                                <div class="captcha">
+                                    <img src="images/captcha.png" />
+                                    <div class="refresh_btn">
+                                        <svg width="49" height="36" viewBox="0 0 49 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M24.6159 35.6683C19.684 35.6683 15.4882 33.9568 12.0285 30.5339C8.56873 27.111 6.83887 22.9336 6.83887 18.0016V17.6152L3.30553 21.1485L0.213867 18.0568L9.0472 9.2235L17.8805 18.0568L14.7889 21.1485L11.2555 17.6152V18.0016C11.2555 21.6822 12.5529 24.8106 15.1477 27.387C17.7425 29.9634 20.8986 31.2516 24.6159 31.2516C25.5729 31.2516 26.5114 31.1412 27.4316 30.9204C28.3517 30.6995 29.2535 30.3683 30.1368 29.9266L33.4493 33.2391C32.0507 34.0488 30.6153 34.6561 29.143 35.061C27.6708 35.4659 26.1618 35.6683 24.6159 35.6683ZM39.9639 26.7797L31.1305 17.9464L34.2222 14.8547L37.7555 18.3881V18.0016C37.7555 14.3211 36.4581 11.1926 33.8633 8.61621C31.2686 6.03982 28.1125 4.75163 24.3951 4.75163C23.4382 4.75163 22.4996 4.86204 21.5795 5.08288C20.6594 5.30371 19.7576 5.63496 18.8743 6.07663L15.5618 2.76413C16.9604 1.95441 18.3958 1.34711 19.868 0.942252C21.3403 0.537391 22.8493 0.334961 24.3951 0.334961C29.3271 0.334961 33.5229 2.04642 36.9826 5.46933C40.4423 8.89225 42.1722 13.0697 42.1722 18.0016V18.3881L45.7055 14.8547L48.7972 17.9464L39.9639 26.7797Z" fill="#818181"/>
+                                            </svg>
+                                            
+                                    </div>
+                                    <div >
+                                        <input type="text" class="captcha_input" placeholder="عبارت امنیتی را وارد نمایید" />
+                                    </div>
+                                </div>                                        
+                                <button data-btn-add="">ثبت</button>
+                            </div>
+                   
+                    </div>
+                </div>
+                <div class="clr"></div>
+                <div class="related_article_wrapper">
+               
+                    <div class="about_title">
+                     
+                        مقالات مرتبط 
+                       </div>
+                
+
+                    <div class="colleages">
+                        <div class="swiper colleagesSlider colleagesSlider2">
+                            <div class="swiper-wrapper">
+                                <basis core="print" datamembername="db.relatedarticle">
+                                    <face>
+                                        <div class="swiper-slide">
+                                            <div class="article">
+                                                <img src="images/blog.jpg" alt=""  />
+                                                <div class="article_title">
+                                                    <div class="article_title_wrapper">
+                                                    <a href="/@link">@title</a>
+                                                    <span>2 دیماه 1402</span>
+                                                </div>
+                                                    <p>@prp_7244</p>
+                                                </div>
+                                            </div>
+                                          </div>
+                                    </face>
+                                </basis>
+                            
+                           
+                           
+                            </div>
+                            <div class="swiper-pagination"></div>
+                          </div>
+                    </div>
+                </div>
+                <div class="clr"></div>
+              </div>
+             
+                
+
+
+                    <div class="clr"></div>
+                    <div class="effect_gallery_wrapper related_project">
+                        <div id="related_article">
+                            <p>
+                                پروژه های مشابه
+                            </p>
+                            <div class="swiper mySwiper2">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide ">
+
+
+                                        <div class="related_article_items">
+                                           
+                                    <basis core="list" datamembername="db.relatedproject">
+                                        <divider rowcount="2">
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide ">
+
+
+                                        <div class="related_article_items">
+                                           
+                                        </divider>
+                                        <face rowtype="even">
+                                            <div class="col-sm-6 col-xs-6 position-five gallery_items even text-right list aos-init aos-animate"
+                                            data-aos="fade-up" data-aos-duration="3000">
+                                            <h2>
+                                                <a href="/@link"
+                                                    target="_self">DUMAN</a>
+                                                    <span>
+                                                        دومان
+                                                    </span>
+                                            </h2>
+                                            
+                                            <a href="/@link"
+                                                target="_self">
+                                                <img class="img-responsive" alt="@title"
+                                                    src="/@00533X00299prp"></a>
+                                        </div>
+                                    </face>
+                                    <face rowtype="odd">
+                                        <div class="col-sm-6 col-xs-6 position-five gallery_items odd text-right list aos-init aos-animate"
+                                        data-aos="fade-up" data-aos-duration="3000">
+                                        <h2>
+                                            <a href="/@link"
+                                                target="_self">@title</a>
+                                                <!-- <span>
+                                                    مرداس
+                                                </span> -->
+                                        </h2>
+                                       
+                                        <a href="/@link"
+                                            target="_self">
+                                            <img class="img-responsive" alt="@title" src="/@00533X00299prp"
+                                                width="" height=""></a>
+                                    </div>
+                                    </face>
+                                    </basis>
+                                   
+                                  
+                                </div>
+
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                            </div>
+                        </div>
+                        
+                    </div>
+            </div>
+           
+        </main>
+        <basis core="call" file="footer.inc" />
+    </div>
+    <basis core="call" file="scripts.inc" />
+    <script  type="application/ld+json" >
+        [##db.json.Column1##]
+         </script>
+    <script src="js/swiper.js"></script>
+
+<script>
+      function sliderAbout(e) {
+     
+            let num = e.getAttribute('data-num')
+            document.querySelector(`.slides ul li.active`).classList.remove('active')
+            document.querySelector(`.slides ul li[data-num="${num}"]`).classList.add('active')
+            document.querySelector(`.slides .slide.active`).classList.remove('active')
+            document.querySelector(`.slides .slide[data-num="${num}"]`).classList.add('active')
+        }
+  
+      
+  
+    let sIndex = 0
+        let infoSlides = document.querySelectorAll(`.slides .slide`)
+        infoSlides.forEach((slide) => {
+            slide.setAttribute('data-num', sIndex)
+            if (sIndex == 0)
+                slide.classList.add('active')
+
+            let li = document.createElement('li')
+            li.setAttribute('data-num', sIndex)
+            if (sIndex == 0)
+                li.classList.add('active')
+
+
+
+            let span = document.createElement('span')
+            span.textContent = `0${sIndex + 1
+                }/0${infoSlides.length
+                }`
+            li.append(span)
+            // document.querySelector(`.slides ul`).appendChild(li)
+            sIndex++
+        })
+       
+        function schemareview() {
+            const questions = document.querySelectorAll("[data-bc-question]")
+            questions.forEach(e => {
+                e.querySelector("[data-bc-text-input]").setAttribute("placeHolder", e.querySelector("[data-bc-question-title]").textContent)
+                let title = e.querySelector("[data-bc-title-container]")
+                title.style.display = "none"
+            })
+        
+        }
+        var swiper = new Swiper(".colleagesSlider", {
+      slidesPerView: 5,
+      spaceBetween: 30,
+      loop:true,
+      gap:"85px",
+      grabCursor: true
+    
+    });
+    const swiper2 = new Swiper('.mySwiper2', {
+            slidesPerView: 1,
+            centeredSlides: false,
+            spaceBetween: 30,
+            loop: true,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+
+        });
+</script>
+       
+</body>
+
+</html>

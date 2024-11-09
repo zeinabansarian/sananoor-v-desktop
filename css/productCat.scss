@@ -1,0 +1,99 @@
+.productCat {
+  overflow: hidden;
+  background-color: #0C0C0C;
+
+  .productCatContainer {
+    width: 100svw;
+    height: 100svh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    .catBOx {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        width: 100%;
+        height: 100%;
+        .inVideo {
+          height: 100%;
+          transform: scale(0.7);
+          transition: 1s ease;
+          overflow: hidden;
+          width: 100%;
+          position: relative;
+        }
+      }
+      video {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100vh;
+        object-fit: fill;
+        filter: brightness(0.4);
+      }
+      .overTitle {
+        width: 205px;
+        position: absolute;
+        h1 {
+          color: white;
+          font-family: Cairo-Black;
+          font-size: 22px;
+          line-height: 41.23px;
+          text-align: center;
+        }
+        .proCatlink {
+            transform: translate(-60% , -100%);
+            opacity: 0;
+            transition: 0.8s ease;
+          .proCatline {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          span {
+            width: 11.48px;
+            height: 11.48px;
+            background-color: white;
+            border-radius: 50%;
+            display: block;
+          }
+          i {
+            width: 191px;
+            height: 1px;
+            background-color: white;
+            display: block;
+          }
+          h2 {
+            font-family: Cairo-Black;
+            font-size: 10px;
+            line-height: 18.74px;
+            text-align: left;
+            color: white;
+          }
+        }
+      }
+    }
+    .catBOx:hover {
+      .inVideo {
+        transform: scale(1);
+      }
+      .proCatlink{
+        transform: translate(0,0)!important;
+        opacity: 1!important;
+      }
+    }
+  }
+}
+.productCatbody {
+  overflow: hidden;
+  margin: 0;
+  header{
+    background-color: transparent!important;
+  }
+}
+

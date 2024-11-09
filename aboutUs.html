@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<!--[if lte IE 8]> <html lang="en" class="ie10 ie9 ie8"> <![endif]--><!--[if IE 9]> <html lang="en" class="ie10 ie9"> <![endif]--><!--[if gt IE 9]><!-->
+<html lang="fa">
+
+<head>
+    <title>درباره ما</title>
+    <meta name="description" content="">
+
+    <link href="css/splide.min.css" rel="stylesheet">
+    <link href="css/all.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/style-rtl.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/privatestle.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/swiper-bundle.min.css" rel="stylesheet" type="text/css" media="all">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="canonical" href="[##cms.request.full-url##]">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <basis core="dbsource" source="hosting" name="tag" urlid="[##cms.seo.urlid##]">
+        <member type="list" name="list" request="taglist" preview=""></member>
+    </basis>
+    <basis core="print" datamembername="tag.list">
+        <face filter="key = 'canonical'">
+        </face>
+        <face>
+            <meta property="@key" content="@value" />
+        </face>
+    </basis>
+    <script>
+        var CCM_DISPATCHER_FILENAME = "/index.php";
+        var CCM_CID = 161;
+        var CCM_EDIT_MODE = false;
+        var CCM_ARRANGE_MODE = false;
+        var CCM_IMAGE_PATH = "/concrete/images";
+        var CCM_TOOLS_PATH = "/index.php/tools/required";
+        var CCM_APPLICATION_URL = "https://wearebishopdesign.com";
+        var CCM_REL = "";
+    </script>
+
+
+    <style>
+        .catDown {
+            padding: 10px 20px;
+            margin-top: 15px;
+            display: block;
+            border: 1px solid white;
+            width: fit-content;
+        }
+    </style>
+
+</head>
+
+<body class=" default-page about_page">
+    <basis core="dbsource" source="basiscore" name="db" lid="1" mid="1" usedforid="2353931">
+        <member type="view" name="Introduction" preview="" />
+    </basis>
+    <basis core="dbsource" source="basiscore" name="db" lid="1" mid="1" usedforid="2353933">
+        <member type="view" name="about" preview="" />
+    </basis>
+    <basis core="dbsource" source="basiscore" name="db" lid="1" mid="1" usedforid="2353936">
+        <member type="view" name="mission" preview="" />
+    </basis>
+    <basis core="dbsource" source="basiscore" name="db" lid="1" mid="1" usedforid="2353937">
+        <member type="view" name="companygroup" preview=""
+            postsql="select * from [db.companygroup] where prpID in (7246)" />
+    </basis>
+    <basis core="dbsource" source="basiscore" name="db" lid="1" mid="1" usedforid="2353938">
+        <member type="view" name="history" preview="" />
+    </basis>
+    <basis core="dbsource" source="basiscore" name="db" lid="1" mid="1" usedforid="2353939">
+        <member type="view" name="vision" preview="" />
+    </basis>
+
+    <basis core="dbsource" source="basiscore" name="db" lid="1" mid="1" usedforid="2353942">
+        <member type="view" name="statistics" preview="" />
+    </basis>
+    <basis core="dbsource" source="media" name="db" lid="1" sourcemid="article" usedforid="2353940">
+        <member type="list" name="logo" preview="" />
+    </basis>
+    <basis core="dbsource" source="media" name="db" lid="1" sourcemid="article" usedforid="2353943">
+        <member type="list" name="awards" preview="" />
+    </basis>
+    <basis core="dbsource" source="media" name="db" lid="1" sourcemid="article" usedforid="2353944">
+        <member type="list" name="certificate" preview="" />
+    </basis>
+    <basis core="dbsource" source="media" name="db" lid="1" sourcemid="article" usedforid="2353945">
+        <member type="list" name="partners" preview="" />
+    </basis>
+    <basis core="dbsource" source="media" name="db" lid="1" sourcemid="article" usedforid="2353937">
+        <member type="list" name="companygroupGallery" preview="" />
+    </basis>
+    <basis core="dbsource" source="media" name="db" lid="1" sourcemid="article" usedforid="2353933">
+        <member type="list" name="about_gallery" preview="" />
+    </basis>
+    <basis core="dbsource" source="basiscore" name="db" lid="11">
+        <member type="list" name="teams" size="320x400" preview="" />
+    </basis>
+    <basis core="dbsource" source="basiscore" name="db" lid="1" mid="5" usedforid="9585">
+        <member request="json-ld" type="scalar" name="json" />
+    </basis>
+
+    <basis core="inlinesource" name="db">
+        <member name="companygroupGalleryJoin" lefttblcol="db.companygroup.RowNumber"
+            righttblcol="db.companygroupGallery.RowNumber" format="join" jointype="leftjoin" preview="\" />
+    </basis>
+
+    <body class=" about-page">
+        <div class="wrapper ccm-page page-type-page page-template-full">
+            <basis core="call" file="header.inc" />
+
+
+            <div class="page">
+                <section id="about" class="about-one">
+                    <div id="section-img" class="section-bg" style="height: 200px"> <img src="images/about11.jpg"
+                            alt="   آقای افشین افشاریان " class="ccm-image-block img-responsive bID-461"></div>
+                    <div class="container-fluid">
+                        <div class="col-sm-6"></div>
+                        <div class="col-sm-6">
+                            <div class="row section-text">
+                                <div class="page-heading">
+
+                                </div>
+                                <div class="content part1">
+                                    <h1>
+                                        <basis core="print" datamembername="db.Introduction">
+                                            <face filter="prpID = 7226">
+                                                @text
+                                            </face>
+                                        </basis>
+                                    </h1>
+                                    <basis core="print" datamembername="db.Introduction">
+                                        <face filter="prpID = 7227">
+                                            @largetext
+                                        </face>
+                                    </basis>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <div class="top-stopper"></div>
+                <section id="clients" class="clients about_wrapper">
+                    <div class="about part2">
+                        <div class="about_title">
+                            <img src="[##cms.cms.cdn##]/images/end logo.png" alt="ماموریت ثنانور" />
+                            درباره‌ی ما
+                        </div>
+                        <div class="about_text">
+                            <basis core="print" datamembername="db.about">
+                                <face filter="prpID = 7227">
+                                    @largetext
+                                </face>
+                            </basis>
+                        </div>
+                        <basis core="print" datamembername="db.about_gallery">
+                            <layout>
+                                <div id="" class="aboutslider_gallery">
+                                    <div class="splide about_gallery" role="group"
+                                        style="position: relative;z-index: 9999;">
+                                        <div class="splide__track">
+                                            <ul class="splide__list">
+                                                @child
+
+
+                                            </ul>
+
+                                        </div>
+                                        <div class="about_button_wrapper">
+                                            <div>
+                                                <div class="splide__arrows splide__arrows3">
+
+
+
+                                                    <button
+                                                        class="splide__arrow splide__arrow3 splide__arrow--prev splide__arrow--prev3">
+                                                        <svg width="30" height="30" viewBox="0 0 20 29" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M1 1L15 15.087L1 28" stroke="#fff"
+                                                                stroke-opacity="1" />
+                                                        </svg>
+
+
+                                                    </button>
+                                                    <button
+                                                        class="splide__arrow splide__arrow3 splide__arrow--next splide__arrow--next3">
+                                                        <svg width="16" height="29" viewBox="0 0 16 29" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M1 1L15 15.087L1 28" stroke="#fff"
+                                                                stroke-opacity="1" />
+                                                        </svg>
+
+
+                                                    </button>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </layout>
+                            <face>
+                                <li class="splide__slide">
+                                    <img src="[##cms.cms.cdn##]/@largeIMG" alt="@name" />
+                                </li>
+                            </face>
+                        </basis>
+                    </div>
+                    <div class="clr"></div>
+                    <div class="about part2">
+                        <div class="about_title">
+                            <img src="[##cms.cms.cdn##]/images/end logo.png" alt="ماموریت ثنانور" />
+                            ماموریت ثنانور
+                        </div>
+                        <div class="about_slogan">
+                            <span class="quote">“</span>
+                            <span class="about_slogan_text">
+                                <basis core="print" datamembername="db.mission">
+                                    <face filter="prpid = 7227">
+                                        @largetext
+                                    </face>
+                                </basis>
+
+                            </span>
+                            <span class="quote">“</span>
+                        </div>
+                    </div>
+                    <div class="about part3">
+                        <div class="about_title">
+                            <img src="[##cms.cms.cdn##]/images/end logo.png" alt="گـروه شرکت‌هـای ثـنـانـور" />
+                            گـروه شرکت‌هـای ثـنـانـور
+                        </div>
+                        <div class=" newSlides">
+                            <div class="newlistSlides">
+                                <ul>
+                                    <basis core="print" datamembername="db.companygroupGalleryJoin">
+
+                                        <face>
+
+                                            <li>
+                                                <button>
+                                                    @db.companygroup.text
+                                                </button>
+                                            </li>
+                                        </face>
+                                    </basis>
+
+                                </ul>
+
+                            </div>
+                            <div class="swiper newSlidesSwiper">
+                                <!-- Additional required wrapper -->
+                                <div class="swiper-wrapper">
+                                    <!-- Slides -->
+                                    <basis core="print" datamembername="db.companygroupGalleryJoin">
+                                        <face>
+
+                                            <div class="swiper-slide">
+                                                <div class="detailsSlides">
+                                                    <div class="newPara">
+                                                        <p>
+                                                            @db.companygroup.largetext
+                                                        </p>
+                                                        <a href="" download class="catDown">دانلود کاتالوگ</a>
+                                                    </div>
+                                                    <div class="newImgSlide">
+                                                        <div class="imgS">
+                                                            <img src="/@db.companygroupGallery.largeIMG"
+                                                                alt="@db.companygroup.text"
+                                                                title="@db.companygroup.text">
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </face>
+                                    </basis>
+
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="clr"></div>
+                    </div>
+                    <div class="clr"></div>
+                    <div class="about part4">
+                        <div class="about_title">
+                            <img src="[##cms.cms.cdn##]/images/end logo.png" alt="تاریخچه" />
+                            تاریخچه
+                        </div>
+                        <div class="text">
+                            <basis core="print" datamembername="db.history">
+                                <face filter="prpID = 7227">
+                                    @largetext
+                                </face>
+                            </basis>
+                        </div>
+                    </div>
+                    <div class="about part5">
+
+                        <div>
+                            <div class="part5_title">چشم انداز </div>
+                            <p>
+                                <basis core="print" datamembername="db.vision">
+                                    <face filter="prpID = 7227">
+                                        @largetext
+                                    </face>
+                                </basis>
+                            </p>
+                        </div>
+                        <div>
+                            <img src="[##cms.cms.cdn##]/images/vision.jpg" alt="چشم انداز" />
+                        </div>
+                    </div>
+                    <basis core="print" datamembername="db.teams">
+                        <layout>
+                            <div class="about part6">
+                                <div class="about_title">
+                                    <img src="[##cms.cms.cdn##]/images/end logo.png" alt="اعضای تیم ثنانور" />
+                                    اعضای تیم ثنانور
+                                </div>
+                            </div>
+                            @child
+                        </layout>
+                        <face>
+
+                        </face>
+                    </basis>
+
+            </div>
+            <basis core="print" datamembername="db.teams">
+                <layout>
+                    <div class="colleages">
+
+                        <div class="splide teamslider" role="group" style="position: relative;z-index: 9999;">
+                            <div class="splide__track">
+                                <ul class="splide__list">
+                                    @child
+
+                                </ul>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </layout>
+                <face>
+                    <li class="splide__slide">
+                        <img src="[##cms.cms.cdn##]/00320X00400prp" alt="@title" />
+                    </li>
+                </face>
+            </basis>
+
+            <div class="logo_wrapper_about">
+                <div class="logo_title">
+                    لوگوی پروژه‌های ثنانور
+                </div>
+                <div class="logo_body">
+                    <basis core="print" datamembername="db.logo">
+                        <face>
+                            <div>
+                                <img src="[##cms.cms.cdn##]/@largeIMG" alt="@name" />
+                            </div>
+                        </face>
+                    </basis>
+                </div>
+            </div>
+            <div class="clr"></div>
+            <div class="statistics_wrapper">
+                <div class="statistics_title">آمارها</div>
+                <div class="satContainer">
+
+                    <div class=" statistics_part1">
+
+                        <basis core="print" datamembername="db.statistics">
+                            <face filter="rownumber in (2,3,4)">
+                                <div class="statistics_number">
+
+                                    <div class="statisValue faNum" akhi="  @largetext">0</div>
+                                    <span>
+                                        @text
+                                    </span>
+                                </div>
+                            </face>
+
+                        </basis>
+
+                    </div>
+                    <div class=" statistics_part2">
+
+                        <basis core="print" datamembername="db.statistics">
+                            <face filter="rownumber > 4">
+                                <div class="statistics_number">
+
+                                    <div class="statisValue faNum" akhi="@largetext">0</div>
+                                    <span>
+                                        @text
+                                    </span>
+                                </div>
+                            </face>
+
+                        </basis>
+                    </div>
+                </div>
+            </div>
+            <div class="clr"></div>
+            <div class="about_wrapper">
+                <div class="about part7">
+                    <div class="about_title">
+                        <img src="[##cms.cms.cdn##]/images/end logo.png" alt="جوایز" />
+                        جوایز
+                    </div>
+                    <div>
+                        <div id="awardslider_gallery">
+
+
+
+                            <basis core="print" datamembername="db.awards">
+                                <layout>
+                                    <div class="swiper awardsSwiper">
+                                        <!-- Additional required wrapper -->
+                                        <div class="swiper-wrapper">
+                                            <!-- Slides -->
+                                            @child
+                                        </div>
+
+                                    </div>
+                                    <div class="awardsDatas">
+                                        <div class="awardsPrevBtn">
+                                            <svg width="22" height="39" viewBox="0 0 22 39" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M20.5 1L2 19.5L20.5 38" stroke="white" stroke-width="2" />
+                                            </svg>
+    
+                                        </div>
+                                        <div class="awardFraction"></div>
+                                        <div class="swiper-scrollbar awardScrollbarr"></div>
+
+                                        <div class="awardsNextBtn">
+                                            <svg width="22" height="39" viewBox="0 0 22 39" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M20.5 1L2 19.5L20.5 38" stroke="white" stroke-width="2" />
+                                        </svg>
+                                        
+                                    </div>
+                                       
+
+                                    </div>
+
+
+                                </layout>
+                                <face>
+                                    <div class="swiper-slide">
+
+
+                                        <img src="[##cms.cms.cdn##]/@largeIMG" alt="@name" width="330" />
+                                    </div>
+                                </face>
+                            </basis>
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="clr"></div>
+                <div class="about part8">
+                    <div class="about_title">
+                        <img src="[##cms.cms.cdn##]/images/end logo.png" alt="تقدیرنامه" />
+                        تقدیرنامه‌ها
+                    </div>
+                    <div>
+                        <div id="awardslider_gallery" class="certificateslider_gallery">
+
+                            <basis core="print" datamembername="db.certificate">
+                                <layout>
+                                    <div class="swiper certiSwiper">
+                                        <!-- Additional required wrapper -->
+                                        <div class="swiper-wrapper">
+                                            <!-- Slides -->
+                                            @child
+                                        </div>
+
+                                    </div>
+                                    <div class="certiDatas">
+                                        <div class="certiPrevBtn">
+                                            <svg width="22" height="39" viewBox="0 0 22 39" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M20.5 1L2 19.5L20.5 38" stroke="white" stroke-width="2" />
+                                            </svg>
+    
+                                        </div>
+                                              <div class="certiFraction"></div>
+
+                                        <div class="swiper-scrollbar certicrollbarr"></div>
+                                        <div class="certiNextBtn">
+                                            <svg width="22" height="39" viewBox="0 0 22 39" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M20.5 1L2 19.5L20.5 38" stroke="white" stroke-width="2" />
+                                            </svg>
+    
+                                        </div>
+
+                                    </div>
+
+
+                                </layout>
+                                <face>
+                                    <div class="swiper-slide">
+
+
+                                        <img src="[##cms.cms.cdn##]/@largeIMG" alt="@name" width="330" />
+                                    </div>
+                                </face>
+                            </basis>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="clr"></div>
+
+
+
+            </div>
+            <div class="clr"></div>
+            <div class="about part9">
+                <basis core="print" datatmembername="db.partners">
+                    <layout>
+                        <div class="statistics_title">شرکای تجاری</div>
+                        @child
+                    </layout>
+                    <face>
+
+                    </face>
+                </basis>
+                <div class="about_partners">
+                    <div class="splide partnerslider" role="group" style="position: relative;z-index: 9999;">
+                        <div class="splide__track">
+                            <ul class="splide__list">
+                                <basis core="print" datatmembername="db.partners">
+                                    <layout>
+
+                                        @child
+
+                                    </layout>
+                                    <face>
+                                        <li class="splide__slide">
+
+                                            <div class="partner">
+                                                <img src="[##cms.cms.cdn##]/@largeIMG" alt="@name" />
+
+                                            </div>
+                                            <p>
+                                                @name
+                                            </p>
+
+                                        </li>
+                                    </face>
+                                </basis>
+
+
+                            </ul>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+            </div>
+            </section>
+            <div class="clr"></div>
+
+            <basis core="call" file="footer.inc" />
+        </div>
+
+
+        </div>
+        <script src="js/jquery.js"></script>
+        <basis core="call" file="scripts.inc" />
+
+        <script src="js/all.js"></script>
+        <script src="js/about.js"></script>
+        <script src="[##cms.cms.cdn##]/_js/swiper-bundle11.0.6.min.js"></script>
+        <script src="js/smooth.scroll.js"></script>
+        <script src="js/rocket-loader.min.js" data-cf-settings="2fb595945281cc30a4b317d9-|49" defer></script>
+        <script src="https://cdn.basiscore.net/basispanel.ir/_js/basiscore-2.23.1.js"></script>
+        <script src="js/splide.min.js"></script>
+        <script>
+
+
+            const counters = document.querySelectorAll('.statisValue');
+            const speed = 200;
+
+            let akhsArray = [];
+            counters.forEach(element => {
+                let akhi = element.getAttribute("akhi")
+                let akkhS = akhi.trim().slice(3, -4)
+                element.setAttribute("data-count", akkhS)
+            });
+
+            var a = 0;
+            $(window).scroll(function () {
+
+                var oTop = $('.satContainer').offset().top - window.innerHeight;
+                if (a == 0 && $(window).scrollTop() > oTop) {
+                    $('.statisValue').each(function () {
+                        var $this = $(this),
+                            countTo = $this.attr('data-count');
+                        $({
+                            countNum: $this.text()
+                        }).animate({
+                            countNum: countTo
+                        },
+
+                            {
+
+                                duration: 2000,
+                                easing: 'swing',
+                                step: function () {
+                                    $this.text(Math.floor(this.countNum));
+                                },
+                                complete: function () {
+                                    $this.text(this.countNum);
+                                    //alert('finished');
+                                }
+
+                            });
+                    });
+                    a = 1;
+                }
+
+            });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            const awardsSwiper = new Swiper('.awardsSwiper', {
+                loop: true,
+                centeredSlides: true,
+                slidesPerView: 3,
+                pagination: {
+    el: '.awardFraction',
+    type: 'custom',
+    
+    renderCustom: function (swiper, current, total) {
+        return `<span>${current}</span>` + '/' + `<span>${(total)}</span>`; 
+    }
+  },
+
+                // Navigation arrows
+                navigation: {
+                    nextEl: '.awardsNextBtn',
+                    prevEl: '.awardsPrevBtn',
+                },
+
+                scrollbar: {
+                    el: '.awardScrollbarr',
+                    draggable : true,
+
+                },
+            });
+            const certiSwiper = new Swiper('.certiSwiper', {
+                loop: true,
+                centeredSlides: true,
+                slidesPerView: 3,
+                pagination: {
+    el: '.certiFraction',
+    type: 'custom',
+    renderCustom: function (swiper, current, total) {
+        return `<span>${current}</span>` + '/' + `<span>${(total)}</span>`; 
+    }
+  },
+  
+  
+  // Navigation arrows
+  navigation: {
+                    nextEl: '.certiNextBtn',
+                    prevEl: '.certiPrevBtn',
+                },
+                
+                scrollbar: {
+                    draggable : true,
+                    el: '.certicrollbarr',
+                },
+            });
+
+
+
+
+
+
+            const newSlidesSwiper = new Swiper('.newSlidesSwiper', {
+                effect: 'fade',
+                loop: false,
+                slidesPerView: 1,
+            });
+            let newlistSlides = document.querySelectorAll(".newlistSlides li")
+            let detailsSlides = document.querySelectorAll(".detailsSlides")
+            newlistSlides[0].classList.add("actveLi")
+            for (let i = 0; i < newlistSlides.length; i++) {
+                const element = newlistSlides[i];
+                element.addEventListener("click", function (params) {
+                    $(".newlistSlides li").removeClass("actveLi")
+                    element.classList.add("actveLi");
+                    newSlidesSwiper.slideTo(i, 800);
+                })
+            }
+
+
+            const teamslider_w = document.querySelector(".teamslider")
+            if (teamslider_w) {
+                var teamslider = new Splide('.teamslider', {
+                    type: 'loop',
+                    perPage: 5,
+                    perMove: 1,
+                    autoWidth: true,
+                    drag: 'free',
+                    padding: 25,
+                    arrows: false,
+                    pagination: false,
+                });
+                teamslider.mount();
+            }
+
+
+            var partnerslider = new Splide('.partnerslider', {
+                type: 'loop',
+                perPage: 5,
+                perMove: 1,
+                autoWidth: true,
+                drag: 'free',
+                arrows: false,
+                pagination: false,
+                padding: '5rem',
+                autoplay: true,
+            });
+            partnerslider.mount();
+
+            // var awardslider = new Splide('.awardslider', {
+            //     type: 'loop',
+            //     perPage: 3,
+            //     perMove: 1,
+            //     pagination: false,
+            //     drag: 'free',
+            //     direction: 'rtl',
+            //     rewind: true,
+            //     classes: {
+            //         arrows: 'splide__arrows1',
+            //         arrow: 'splide__arrow1',
+            //         prev: 'splide__arrow--prev1',
+            //         next: 'splide__arrow--next1',
+            //     },
+            // });
+            // var bar1 = awardslider.root.querySelector('.my-carousel-progress-bar1');
+            // awardslider.on('mounted move', function () {
+            //     var end = awardslider.Components.Controller.getEnd() + 1;
+            //     var rate = Math.min((awardslider.index + 1) / end, 1);
+            //     const number = awardslider.root.querySelector(".awardslide_number")
+            //     number.querySelector(".awardslide_number1").textContent = awardslider.index + 1
+            //     number.querySelector(".awardslide_number2").textContent = awardslider.Components.Controller.getEnd() + 1
+            //     bar1.style.width = String(100 * rate) + '%';
+            // });
+            // awardslider.mount();
+
+
+            const about_gallery_w = document.querySelector(".about_gallery")
+            if (about_gallery_w) {
+                var about_gallery = new Splide('.about_gallery', {
+                    type: 'loop',
+                    perPage: 1,
+                    perMove: 1,
+                    pagination: false,
+                    direction: 'rtl',
+                    classes: {
+                        arrows: 'splide__arrows3',
+                        arrow: 'splide__arrow3',
+                        prev: 'splide__arrow--prev3',
+                        next: 'splide__arrow--next3',
+                    },
+
+                });
+                about_gallery.mount()
+            }
+
+
+
+            // var certificateslider = new Splide('.certificateslider', {
+            //     type: 'loop',
+            //     perPage: 3,
+            //     perMove: 1,
+            //     pagination: false,
+            //     drag: 'free',
+            //     direction: 'rtl',
+            //     rewind: true,
+            //     classes: {
+            //         arrows: 'splide__arrows2',
+            //         arrow: 'splide__arrow2',
+            //         prev: 'splide__arrow--prev2',
+            //         next: 'splide__arrow--next2',
+            //     },
+            // });
+            // var bar = certificateslider.root.querySelector('.my-carousel-progress-bar2');
+            // certificateslider.on('mounted move', function () {
+            //     var end = certificateslider.Components.Controller.getEnd() + 1;
+            //     var rate = Math.min((certificateslider.index + 1) / end, 1);
+            //     const number = certificateslider.root.querySelector(".awardslide_number")
+            //     number.querySelector(".awardslide_number1").textContent = certificateslider.index + 1
+            //     number.querySelector(".awardslide_number2").textContent = certificateslider.Components.Controller.getEnd() + 1
+            //     bar.style.width = String(100 * rate) + '%';
+            // });
+            // certificateslider.mount();
+
+
+            // let sIndex = 0
+            // let infoSlides = document.querySelectorAll(`.slides .slide`)
+            // infoSlides.forEach((slide) => {
+            //     slide.setAttribute('data-num', sIndex)
+            //     if (sIndex == 0)
+            //         slide.classList.add('active')
+
+            //     let li = document.createElement('li')
+            //     li.setAttribute('data-num', sIndex)
+            //     if (sIndex == 0)
+            //         li.classList.add('active')
+            //     let span = document.createElement('span')
+            //     span.textContent = `0${sIndex + 1
+            //         }/0${infoSlides.length
+            //         }`
+            //     li.append(span)
+
+            //     sIndex++
+            // })
+            // function sliderAbout(e) {
+
+            //     let num = e.getAttribute('data-num')
+            //     document.querySelector(`.slides ul li.active`).classList.remove('active')
+            //     document.querySelector(`.slides ul li[data-num="${num}"]`).classList.add('active')
+            //     document.querySelector(`.slides .slide.active`).classList.remove('active')
+            //     document.querySelector(`.slides .slide[data-num="${num}"]`).classList.add('active')
+            // }
+
+
+        </script>
+
+    </body>
+
+</html>

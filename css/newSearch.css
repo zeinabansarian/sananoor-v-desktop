@@ -1,0 +1,452 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.faNum {
+  font-family: IRANSansWeb !important;
+}
+
+@font-face {
+  font-family: IRANSansWeb;
+  src: url("https://cdn.basiscore.net/_fonts/IRANSansWeb(FaNum).eot");
+  src: url("https://cdn.basiscore.net/_fonts/IRANSansWeb(FaNum).eot") format("embedded-opentype"), url("https://cdn.basiscore.net/_fonts/IRANSansWeb(FaNum).woff") format("woff"), url("https://cdn.basiscore.net/_fonts/IRANSansWeb(FaNum).ttf") format("truetype");
+}
+@font-face {
+  font-family: Cairo-Regular;
+  src: url(../_fonts/Cairo-Regular.eot);
+  src: local("?"), url(../_fonts/Cairo-Regular.woff) format("woff"), url(../_fonts/Cairo-Regular.ttf) format("truetype"), url(../_fonts/Cairo-Regular.otf) format("otf");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: Cairo-Regular;
+  src: url(../_fonts/Cairo-Bold.eot);
+  src: local("?"), url(../_fonts/Cairo-Bold.woff) format("woff"), url(../_fonts/Cairo-Bold.ttf) format("truetype"), url(../_fonts/Cairo-Bold.otf) format("otf");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: Cairo-SemiBold;
+  src: url(../_fonts/Cairo-SemiBold.eot);
+  src: local("?"), url(../_fonts/Cairo-SemiBold.woff) format("woff"), url(../_fonts/Cairo-SemiBold.ttf) format("truetype"), url(../_fonts/Cairo-SemiBold.otf) format("otf");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: Cairo-Light;
+  src: url(../_fonts/Cairo-Light.eot);
+  src: local("?"), url(../_fonts/Cairo-Light.woff) format("woff"), url(../_fonts/Cairo-Light.ttf) format("truetype"), url(../_fonts/Cairo-Light.otf) format("otf");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: Cairo-Black;
+  src: url(../_fonts/Cairo-Black.eot);
+  src: local("?"), url(../_fonts/Cairo-Black.woff) format("woff"), url(../_fonts/Cairo-Black.ttf) format("truetype"), url(../_fonts/Cairo-Black.otf) format("otf");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: Cairo-ExtraLight;
+  src: url(../_fonts/Cairo-ExtraLight.eot);
+  src: local("?"), url(../_fonts/Cairo-ExtraLight.woff) format("woff"), url(../_fonts/Cairo-ExtraLight.ttf) format("truetype"), url(../_fonts/Cairo-ExtraLight.otf) format("otf");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: estedad;
+  src: url(../_fonts/Estedad-Bold.eot);
+  src: local("?"), url(../_fonts/Estedad-Bold.woff) format("woff"), url(../_fonts/Estedad-Bold.ttf) format("truetype"), url(../_fonts/Estedad-Bold.otf) format("otf");
+  font-weight: 600;
+  font-style: normal;
+}
+header .navbar .nav li a {
+  font-family: "Cairo-Regular";
+}
+
+.searchPage {
+  overflow: hidden;
+  background-color: #0c0c0c;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
+  position: relative;
+}
+.searchPage footer {
+  margin-top: 59px;
+}
+.searchPage .blogBox:hover .details {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+.searchPage a {
+  text-decoration: none;
+}
+.searchPage a .imgS img {
+  width: 100%;
+}
+.searchPage a .details {
+  background-color: #1a1a1a;
+  margin-top: 9px;
+  position: relative;
+  opacity: 0;
+  transform: translateY(-100%);
+  padding: 5px;
+  transition: 0.5s ease;
+}
+.searchPage a .details .blogTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  direction: rtl;
+}
+.searchPage a .details .blogTitle h1 {
+  font-family: Cairo-Black;
+  margin: 0;
+  font-size: 18px;
+  line-height: 33.73px;
+  text-align: right;
+  color: white;
+}
+.searchPage a .details .blogTitle span {
+  font-family: Cairo-ExtraLight;
+  font-size: 11px;
+  font-weight: 200;
+  line-height: 20.61px;
+  text-align: left;
+  color: white;
+}
+.searchPage a .details .para p {
+  margin: 0;
+  direction: rtl;
+  font-family: Cairo-Light;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 22.49px;
+  text-align: justify;
+  color: white;
+}
+.searchPage .projectfoundTxt {
+  margin: 170px 60px 29px 60px;
+}
+.searchPage .projectfoundTxt p {
+  font-family: Cairo-Regular;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 44.98px;
+  text-align: right;
+  color: white;
+  direction: rtl;
+}
+.searchPage .blogfoundTxt {
+  margin: 56px 60px 49px 0;
+}
+.searchPage .blogfoundTxt p {
+  font-family: Cairo-Regular;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 44.98px;
+  text-align: right;
+  color: white;
+  direction: rtl;
+}
+.searchPage .searchFormPage {
+  padding-top: 157px;
+  position: relative;
+  z-index: 1;
+}
+.searchPage .searchFormPage form {
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  width: 900px;
+  justify-content: center;
+  margin: 0 auto;
+  border-bottom: 1px solid white;
+}
+.searchPage .searchFormPage form input {
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  font-family: Cairo-Regular;
+  direction: rtl;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 26.24px;
+  text-align: right;
+  color: white;
+}
+.searchPage .searchFormPage form button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+.searchPage .projectsearchSlider {
+  padding: 0 219px;
+  position: relative;
+}
+.searchPage .projectsearchSlider .projectNext {
+  position: absolute;
+  top: 50%;
+  right: 60px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.searchPage .projectsearchSlider .projectPrev {
+  position: absolute;
+  top: 50%;
+  left: 60px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.searchPage .projectsearchSlider .swiper-button-disabled {
+  opacity: 0;
+  cursor: auto;
+}
+.searchPage .projectsearchSlider a {
+  position: relative;
+  text-decoration: none;
+}
+.searchPage .projectsearchSlider a .imgS img {
+  filter: brightness(0.4);
+  transition: 0.5s ease;
+}
+.searchPage .projectsearchSlider a .imgS:hover img {
+  filter: brightness(1);
+}
+.searchPage .projectsearchSlider a .title {
+  width: -moz-fit-content;
+  width: fit-content;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  right: 0;
+}
+.searchPage .projectsearchSlider a .title h1 {
+  font-family: Cairo-SemiBold;
+  transform: translateX(50%);
+  font-size: 24px;
+  line-height: 44.98px;
+  text-align: center;
+  width: -moz-fit-content;
+  width: fit-content;
+  color: white;
+  mix-blend-mode: difference;
+  align-self: baseline;
+}
+.searchPage .projectsearchSlider a .title h2 {
+  font-family: stedad;
+  font-size: 45px;
+  font-weight: 600;
+  transform: translateX(50%);
+  line-height: 79.1px;
+  mix-blend-mode: difference;
+  text-align: center;
+  width: -moz-fit-content;
+  width: fit-content;
+  color: white;
+}
+.searchPage .projectsearchSlider .swiper-slide-duplicate-next {
+  overflow: hidden;
+}
+.searchPage .blogsearchSlider {
+  position: relative;
+}
+.searchPage .blogsearchSlider .swiper-button-disabled {
+  opacity: 0;
+  cursor: auto;
+}
+.searchPage .blogsearchSlider .swiper-button {
+  transition: 0.5s ease;
+}
+.searchPage .blogsearchSlider .blogNext {
+  position: absolute;
+  top: 27%;
+  right: 0;
+  z-index: 10;
+  cursor: pointer;
+}
+.searchPage .blogsearchSlider .blogPrev {
+  cursor: pointer;
+  position: absolute;
+  top: 27%;
+  left: 0;
+  z-index: 10;
+}
+.searchPage .notFoundForm {
+  padding: 0;
+}
+.searchPage .notFoundTxt {
+  text-align: center;
+  color: white;
+  transform: translateY(59px);
+  position: relative;
+  z-index: 1;
+}
+.searchPage .notFoundTxt p {
+  font-family: Cairo-Regular;
+  direction: rtl;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 24.36px;
+  text-align: center;
+}
+.searchPage .notFoundPage {
+  width: 100svw;
+  height: 100svh;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.searchPage .backImg {
+  position: absolute;
+  top: 0;
+  z-index: 0;
+}
+.searchPage .backImg img {
+  height: 100svh;
+}/*# sourceMappingURL=newSearch.css.map */

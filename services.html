@@ -1,0 +1,548 @@
+<basis core="dbsource" name="db" source="basiscore" lid="1" mid="1" usedforid="2355010">
+    <member name="newservice" type="view" postsql="select * from [db.newservice] where TypeID=250" />
+</basis>
+<basis core="dbsource" name="db" source="media" lid="1" sourcemid="1" usedforid="2355010">
+    <member name="newserviceGallery" type="list" format="4"
+        postsql="select * from [db.newserviceGallery] where ord=1000" />
+</basis>
+
+<basis core="inlinesource" name="db">
+    <member name="newserviceJoin" lefttblcol="db.newserviceGallery.RowNumber" righttblcol="db.newservice.RowNumber"
+        format="join" jointype="leftjoin" />
+</basis>
+
+<!DOCTYPE html>
+<!--[if lte IE 8]> <html lang="en" class="ie10 ie9 ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie10 ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html lang="fa">
+<basis core="dbsource" source="basiscore" name="db" lid="1" mid="1" usedforid="2353926">
+    <member type="view" name="service" postsql="select * from [db.service] where prpID in (7246) " />
+</basis>
+<basis core="dbsource" source="basiscore" name="db" lid="1" mid="1" usedforid="2355010">
+
+
+    <member type="list" name="relatedarticle555" link="project.bc" size="372x230" propertyid="7227"
+        postsql=" select * from [db.relatedarticle555] where schemaid=555" blgid="222" />
+
+    <member type="list" name="relatedarticle" link="project.bc" size="372x230" propertyid="7244"
+        postsql=" select * from [db.relatedarticle] where schemaid=1162" blgid="222" />
+</basis>
+<basis core="dbsource" source="basiscore" name="db" lid="1" mid="1" usedforid="2353926">
+    <member type="list" name="relatedproject" link="project.bc" blgid="1611" size="533x299" />
+</basis>
+
+<basis core="dbsource" source="basiscore" name="db" lid="2" mid="1" usedforid="2353926">
+    <member type="list" name="relatedprojecten" link="project.bc" blgid="1611" size="533x299" />
+</basis>
+
+<basis core="inlinesource" name="db">
+    <member name="relatedprojectJoin" lefttblcol="db.relatedproject.RowNumber" righttblcol="db.relatedprojecten.RowNumber"
+        format="join" jointype="leftjoin"/>
+</basis>
+<basis core="dbsource" source="basiscore" name="db" lid="1" mid="1" usedforid="2353926">
+    <member request="json-ld" type="scalar" name="json" />
+</basis>
+
+<head>
+
+    <title>خدمات</title>
+    <meta name="description" content="">
+    <basis core="call" file="styles.inc" />
+    <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="[##cms.cms.cdn##]/css/persian-datepicker.min.css" />
+
+    <style>
+        .list-page {
+            margin-bottom: 0 !important;
+            padding-bottom: 0 !important;
+            margin-top: 0 !important;
+        }
+
+        .colleagesSlider .swiper-slide {
+            margin-left: 80px;
+        }
+    </style>
+</head>
+
+<body class=" default-page">
+
+    <div class="newserviceSana">
+
+        <basis core="call" file="header.inc" />
+        <div class="newServiceSection1">
+            <div class="swiper ServiceSection1Swiper">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <basis core="print" datamembername="db.newserviceJoin">
+                        <face>
+
+                            <div class="swiper-slide">
+                                <div class="imgS">
+                                    <img src="/@db.newserviceGallery.largeIMG" alt="@db.newservice.text"
+                                        title="@db.newservice.text" />
+                                </div>
+                                <div class="descOver">
+                                    <div class="para">
+                                        @db.newservice.largetext
+
+                                    </div>
+                                </div>
+                            </div>
+                        </face>
+                    </basis>
+
+                </div>
+            </div>
+
+            <div class="service1List">
+                <ul>
+                    <basis core="print" datamembername="db.newserviceJoin">
+                        <face>
+                            <li>
+                                <h4>
+                                    @db.newservice.text
+                                </h4>
+                            </li>
+
+                        </face>
+                    </basis>
+
+                </ul>
+            </div>
+        </div>
+        <main>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12"></div>
+                </div>
+            </div>
+            <div class="list-page work-page">
+                <div class="clr"></div>
+                <div class="service_contact_us">
+                    <div class="contact_us_wrapper">
+                        <p>
+                            فرم درخواست خدمات
+                        </p>
+                        <div>
+                            <form name="myForm" class="homeForm" action="" onsubmit="return validateForm()"
+                                method="post">
+                                <basis core="schema" run="atclient"
+                                    schemaUrl="/schema/domainform/237558FA-9508-4D6E-A723-67EC3F8E80D5/B52A329E-0E8D-416D-BA5F-B07FDBBAE7E5/fa/فرم-درخواست-خدمات        "
+                                    displayMode="new" button="[data-btn-add]" resultSourceId="demo.data"
+                                    onRendered="renderFn">
+                                </basis>
+                                <basis core="callback" run="AtClient" triggers="demo.data" method="onSource"></basis>
+                                <basis core="api"
+                                    url="/schema/domainform/237558FA-9508-4D6E-A723-67EC3F8E80D5/fa/editobject"
+                                    method="post" run="atclient"
+                                    body="object_edit={##edit.object.value##}&captcha={##edit.object.captcha##}&captchaid={##edit.object.captchaid##}"
+                                    content-type="application/x-www-form-urlencoded" triggers="edit.object"
+                                    if="{##edit.object##}" OnProcessed="OnProcessedEditObject1">
+                                </basis>
+                                <div data-bc-question="" class="qclass8">
+                                    <div class="responsMsg">
+                                        <span>فرم با موفقیت ثبت شد.</span>
+                                    </div>
+                                    <div id="requestBox" class="captchaContainerclass captcha-sefaresh2"
+                                        style="margin-bottom: 20px" data-bc-answer-container=""
+                                        data-bc-schema-info-multi="0" data-bc-schema-info-word="58"
+                                        data-bc-schema-info-part="1" data-bc-schema-info-part-0-type="text">
+                                        <basis core="dbsource" source="trust_login" name="captcha2"
+                                            triggers="cms.reload" run="atclient">
+                                            <member name="code2" type="scalar" request="captcha"></member>
+                                        </basis>
+                                        <basis datamembername="captcha2.code2" core="print" run="atclient">
+                                            <face>
+                                                <script type="text/template">
+
+                                            <span class="captcha-sefaresh">
+                                                <img src="/@captcha@" width="88" height="44" class="captcha-sefaresh"
+                                                    alt="captcha" title="captcha" />
+                                                <input type="hidden" name="captchaid" value="@captcha@" />
+                                            </span>
+                                        <img src="[##cms.cms.cdn##]/images/cached.png" class="refressh refressh1" run="atclient" bc-triggers="click" bc-name="cms.reload" />
+                                        <input type="text" class="codeinputm" name="captcha" style="background-color: #FAFAFA!important;border: none!important;" placeholder="عبارت امنیتی روبرو را وارد فرمایید" />
+                                    </script>
+
+                                            </face>
+                                        </basis>
+                                    </div>
+
+                                    <button type="submit" data-btn-add data-btn-submit="">
+                                        <span>
+                                            ثبت
+                                        </span>
+
+
+                                    </button>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                    <div class="clr"></div>
+                    <div class="related_article_wrapper">
+
+                        <div class="about_title">
+
+                            مقالات مرتبط
+                        </div>
+                        <div class="colleages">
+                            <div class="swiper blogListBoxContainer" dir="rtl">
+                                <div class="swiper-wrapper">
+                                    <basis core="print" datamembername="db.relatedarticle">
+                                        <face>
+                                            <div class="swiper-slide">
+                                                <div class="blogBox">
+                                                    <a href="/@link" title="@title">
+                                                        <div class="imgS">
+                                                            <img src="/@00372X00230prp" alt="@title" title="@title">
+                                                        </div>
+                                                        <div class="details">
+                                                            <div class="blogTitle">
+                                                                <h1>
+                                                                    @title
+                                                                </h1>
+                                                                <span>
+                                                                    @date
+                                                                </span>
+                                                            </div>
+                                                            <div class="para">
+                                                                <p>
+
+                                                                    @prp_7244
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </face>
+                                    </basis>
+    <basis core="print" datamembername="db.relatedarticle555">
+                                        <face>
+                                            <div class="swiper-slide">
+                                                <div class="blogBox">
+                                                    <a href="/@link" title="@title">
+                                                        <div class="imgS">
+                                                            <img src="/@00372X00230prp" alt="@title" title="@title">
+                                                        </div>
+                                                        <div class="details">
+                                                            <div class="blogTitle">
+                                                                <h1>
+                                                                    @title
+                                                                </h1>
+                                                                <span>
+                                                                    @date
+                                                                </span>
+                                                            </div>
+                                                            <div class="para">
+                                                                <p>
+
+                                                                    @prp_7227
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </face>
+                                    </basis>
+
+
+
+                                </div>
+                                <div class="nextRelatedBlog">
+                                    <svg width="58" height="58" viewBox="0 0 58 58" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <rect width="58" height="58" fill="#0E0E0E" />
+                                        <path d="M22 14L36.5 28.5L22 43" stroke="#DBDBDB" stroke-opacity="0.5" />
+                                    </svg>
+
+                                </div>
+                                <div class="prevRelatedBlog">
+                                    <svg width="58" height="58" viewBox="0 0 58 58" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <rect width="58" height="58" fill="#0E0E0E" />
+                                        <path d="M36.5 14L22 28.5L36.5 43" stroke="#DBDBDB" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clr"></div>
+                </div>
+                <div class="clr"></div>
+                <div class="effect_gallery_wrapper related_project">
+                    <div id="related_article">
+                        <p>
+                            پروژه های مشابه
+                        </p>
+                        <div class="swiper mySwiper2">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide ">
+
+
+                                    <div class="related_article_items">
+
+                                        <basis core="list" datamembername="db.relatedprojectJoin">
+                                            <divider rowcount="2">
+                                    </div>
+                                </div>
+                                <div class="swiper-slide ">
+
+
+                                    <div class="related_article_items">
+
+                                        </divider>
+                                        <face rowtype="even">
+                                            <div class="col-sm-6 col-xs-6 position-five gallery_items even text-right list aos-init aos-animate"
+                                                data-aos="fade-up" data-aos-duration="3000">
+                                                <h2>
+                                                    <a href="/@db.relatedproject.link" target="_self">@db.relatedprojecten.title</a>
+                                                    <span>
+                                                        @db.relatedproject.title
+                                                    </span>
+                                                </h2>
+
+                                                <a href="/@db.relatedproject.link" target="_self">
+                                                    <img class="img-responsive" alt="@title" src="/@db.relatedproject.00533X00299prp"></a>
+                                            </div>
+                                        </face>
+                                        <face rowtype="odd">
+                                            <div class="col-sm-6 col-xs-6 position-five gallery_items odd text-right list aos-init aos-animate"
+                                                data-aos="fade-up" data-aos-duration="3000">
+                                               <h2>
+                                                    <a href="/@db.relatedproject.link" target="_self">@db.relatedprojecten.title</a>
+                                                    <span>
+                                                        @db.relatedproject.title
+                                                    </span>
+                                                </h2>
+
+                                                <a href="/@db.relatedproject.link" target="_self">
+                                                    <img class="img-responsive" alt="@title" src="/@db.relatedproject.00533X00299prp"
+                                                        width="" height=""></a>
+                                            </div>
+                                        </face>
+                                        </basis>
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+
+                        </div>
+                    </div>
+
+        </main>
+        <basis core="call" file="footer.inc" />
+    </div>
+    <basis core="call" file="scripts.inc" />
+    <script src='[##cms.cms.cdn##]/_js/jquery/jquery-3.6.3.min.js'></script>
+  <script src='[##cms.cms.cdn##]/js/persian-date.min.js'></script>
+  <script src='[##cms.cms.cdn##]/js/persian-datepicker.min.js'></script>
+    <script type="application/ld+json">
+        [##db.json.Column1##]
+         </script>
+    <script src="js/swiper.js"></script>
+
+    <script>
+
+
+        window.addEventListener("scroll", function (params) {
+            if (window.pageYOffset > 30) {
+                document.querySelector("header").classList.add(("headerBackBlack"))
+            }
+            else {
+                document.querySelector("header").classList.remove(("headerBackBlack"))
+
+            }
+        })
+        const ServiceSection1Swiper = new Swiper(".ServiceSection1Swiper", {
+            // Optional parameters
+            loop: false,
+            effect: "fade",
+        });
+        let service1List = document.querySelectorAll(".service1List li")
+        service1List[0].classList.add("activeServiceList")
+        for (let i = 0; i < service1List.length; i++) {
+            const element = service1List[i];
+            element.addEventListener("click", function (params) {
+                $(".service1List li").removeClass("activeServiceList")
+                element.classList.add("activeServiceList")
+                ServiceSection1Swiper.slideTo(i, 500);
+            })
+        }
+
+
+        function sliderAbout(e) {
+
+            let num = e.getAttribute('data-num')
+            document.querySelector(`.slides ul li.active`).classList.remove('active')
+            document.querySelector(`.slides ul li[data-num="${num}"]`).classList.add('active')
+            document.querySelector(`.slides .slide.active`).classList.remove('active')
+            document.querySelector(`.slides .slide[data-num="${num}"]`).classList.add('active')
+        }
+
+
+
+        let sIndex = 0
+        let infoSlides = document.querySelectorAll(`.slides .slide`)
+        infoSlides.forEach((slide) => {
+            slide.setAttribute('data-num', sIndex)
+            if (sIndex == 0)
+                slide.classList.add('active')
+
+            let li = document.createElement('li')
+            li.setAttribute('data-num', sIndex)
+            if (sIndex == 0)
+                li.classList.add('active')
+
+
+
+            let span = document.createElement('span')
+            span.textContent = `0${sIndex + 1
+                }/0${infoSlides.length
+                }`
+            li.append(span)
+            // document.querySelector(`.slides ul`).appendChild(li)
+            sIndex++
+        })
+
+        function schemareview() {
+            const questions = document.querySelectorAll("[data-bc-question]")
+            questions.forEach(e => {
+                e.querySelector("[data-bc-text-input]").setAttribute("placeHolder", e.querySelector("[data-bc-question-title]").textContent)
+                let title = e.querySelector("[data-bc-title-container]")
+                title.style.display = "none"
+            })
+
+        }
+        var swiper = new Swiper(".colleagesSlider", {
+            slidesPerView: 5,
+            spaceBetween: 30,
+            loop: true,
+            gap: "85px",
+            grabCursor: true
+
+        });
+        const swiper2 = new Swiper('.mySwiper2', {
+            slidesPerView: 1,
+            centeredSlides: false,
+            spaceBetween: 30,
+            loop: true,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+
+        });
+
+
+const blogListBoxContainer = new Swiper('.blogListBoxContainer', {
+ slidesPerView: 2.4,
+ centeredSlides: false,
+ spaceBetween: 30,
+ loop: false,
+ navigation: {
+ nextEl: ".nextRelatedBlog",
+ prevEl: ".prevRelatedBlog",
+ },
+
+ });
+
+        function onSource(args) {
+            console.log("onSource");
+            const captcha = document.querySelector(
+                "#requestBox input[name='captcha']"
+            ).value;
+            const captchaid = document.querySelector(
+                "#requestBox input[name='captchaid']"
+            ).value;
+            const stringJson = JSON.stringify(args.source?.rows[0]);
+            console.log("stringJson", stringJson);
+            $bc.setSource("edit.object", {
+                value: stringJson,
+                captcha: captcha,
+                captchaid: captchaid,
+            });
+        }
+
+        let responsMsg = document.querySelector(".responsMsg");
+        let responsMsgIn = document.querySelector(".responsMsg span");
+
+        async function OnProcessedEditObject1(args) {
+            console.log("OnProcessedEditObject1");
+            const response = args.response;
+            const json = await response.json();
+
+            if (json.errorid == 6) {
+                console.log(json);
+                responsMsgIn.innerHTML = "فرم با موفقیت ثبت شد.";
+                responsMsg.style.display = "block";
+
+                setTimeout(() => {
+                    responsMsg.style.display = "none";
+                }, 2000);
+            }
+            if (json.errorid == 4) {
+                console.log(json);
+                responsMsgIn.innerHTML = "لطفا کپچا را به درستی وارد کنید.";
+
+                responsMsg.style.display = "block";
+
+                setTimeout(() => {
+                    responsMsg.style.display = "none";
+                }, 2000);
+            }
+        }
+
+        function renderFn(params) {
+            let questions = document.querySelectorAll(".homeForm div[data-bc-question]");
+   let dataTitleForm = document.querySelectorAll("[data-bc-question-title]")
+      dataTitleForm.forEach(element => {
+        if (element.innerHTML.includes("تاریخ")) {
+          let dateInput = element.parentElement.nextElementSibling.querySelector("input")
+          console.log("date input", dateInput);
+          $(dateInput).pDatepicker({
+            autoClose: true,
+            initialValue: false,
+            format: "YYYY/MM/DD",
+          });
+        }
+       
+      });
+     
+            questions.forEach((element) => {
+                let title = element.querySelector("[data-bc-question-title]");
+                let qInput = element.querySelector("input");
+                let qTxtArea = element.querySelector("______________textarea");
+                if (title) {
+                    title = element.querySelector("[data-bc-question-title]").innerHTML;
+                    if (qInput) {
+
+                        qInput.setAttribute("placeholder", title);
+                    }
+                    else if (qTxtArea) {
+
+                        qTxtArea.setAttribute("placeholder", title);
+                    }
+
+                }
+                console.log("q", qInput);
+            });
+
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>

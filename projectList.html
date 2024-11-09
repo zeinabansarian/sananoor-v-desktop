@@ -1,0 +1,178 @@
+    <basis core="dbsource" source="basiscore" name="db" lid="1" mid="19">
+        <member request="cat" type="tree" name="filter" parentid="208272" size="533x299"></member>
+    </basis>
+    <!DOCTYPE html>
+    <!--[if lte IE 8]> <html lang="en" class="ie10 ie9 ie8"> <![endif]-->
+    <!--[if IE 9]> <html lang="en" class="ie10 ie9"> <![endif]-->
+    <!--[if gt IE 9]><!-->
+    <html lang="fa">
+
+    <head>
+        <title>لیست پروژه‌ها</title>
+        <meta name="description" content="" />
+        <basis core="call" file="styles.inc" />
+        <meta name="description" content="لیست پروژه های شرکت ثنانور" />
+    </head>
+    <basis core="dbsource" source="basiscore" name="db" lid="1" mid="19" catid="[##cms.query.catid|(208273)##]">
+        <member type="list" name="plistfa" link="project.bc" size="533x299" preview="" />
+    </basis>
+    <basis core="dbsource" source="basiscore" name="db" lid="2" mid="19" catid="[##cms.query.catid|(208273)##]">
+        <member type="list" name="plisten" preview="" />
+    </basis>
+    <basis core="inlinesource" name="db">
+        <member name="plist" lefttblcol="db.plistfa.id" righttblcol="db.plisten.id" format="join" jointype="leftjoin"
+            preview="" />
+    </basis>
+
+    <body class="default-page">
+        <div class="wrapper ccm-page projectListHidden">
+            <span class="circle-hero not-page"></span>
+            <basis core="call" file="header.inc" />
+            <main>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12"></div>
+                    </div>
+                </div>
+                <div class="list-page work-page plist-bg">
+                    <basis core="dbsource" source="basiscore" name="db" lid="1" mid="19">
+                        <member request="cat" type="tree" name="cat" parentid="208272" size="533x299"
+                            postsql="select * from [db.cat] where catid not in (208272)" preview="" />
+                    </basis>
+                    <div class="container-fluid full">
+                        <div class="row">
+                            <div class="project-listing ccm-block-page-list-thumbnail-grid-wrapper plist">
+                                <ul class="filter hidden-xs">
+                                    <basis core="print" datamembername="db.filter">
+                                        <layout>
+                                            <!-- <li>
+                                                    <a href="project-list.bc?catid=@catid " class="active">همه</a>
+                                                </li> -->
+                                            @child
+                                        </layout>
+                                        <face>
+                                            <li>
+                                                <a data-catid="@catid" href="javascript:void(0);" class="filterBtn"
+                                                    data-project="/load-project.bc?catid=@catid&refresh=true">@title
+                                                </a>
+                                            </li>
+                                        </face>
+                                    </basis>
+                                </ul>
+                            </div>
+
+                            <div class="project-listing projectContainerLoad work-listing ccm-block-page-list-thumbnail-grid-wrapper"
+                                id="work-grid">
+                                <basis core="list" datamembername="db.plist">
+                                    <face rowtype="odd">
+                                        <div class="col-sm-6 col-xs-6 position-three odd text-right list" data-aos="fade-up"
+                                            data-aos-duration="3000">
+                                            <div class="projectListTitle">
+
+                                                <h3>
+                                                    <a href="/@db.plistfa.link" target="_self">@db.plisten.title</a>
+                                                </h3>
+                                                <h4>@db.plistfa.title</h4>
+                                            </div>
+                                            <!-- <span>@title</span> -->
+                                            <a href="/@db.plistfa.link" target="_self">
+                                                <img class="img-responsive" alt="@title"
+                                                    src="[##cms.cms.cdn##]/@db.plistfa.00533X00299prp" /></a>
+                                        </div>
+                                    </face>
+                                    <face rowtype="even">
+                                        <div class="col-sm-6 col-xs-6 position-five even text-right list" data-aos="fade-up"
+                                            data-aos-duration="3000">
+                                            <div class="projectListTitle">
+
+                                                <h3>
+                                                    <a href="/@db.plistfa.link" target="_self">@db.plisten.title</a>
+                                                </h3>
+                                                <h4>@db.plistfa.title</h4>
+                                            </div>
+                                            <!-- <span>@title</span> -->
+                                            <a href="/@db.plistfa.link" target="_self">
+                                                <img class="img-responsive" alt="@title"
+                                                    src="[##cms.cms.cdn##]/@db.plistfa.00533X00299prp" /></a>
+                                        </div>
+                                    </face>
+                                </basis>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+                <style>
+                    .list-page .filter {
+                        z-index: 1;
+                    }
+                </style>
+            </main>
+            <basis core="call" file="footer.inc" />
+        </div>
+    <span class="catid" style="display:none;">[##cms.query.catid##]</span>
+        <script src="[##cms.cms.cdn##]/js/jquery.js"></script>
+        <script>
+            var CCM_DISPATCHER_FILENAME = "/index.php";
+            var CCM_CID = 395;
+            var CCM_EDIT_MODE = false;
+            var CCM_ARRANGE_MODE = false;
+            var CCM_IMAGE_PATH = "/concrete/images";
+            var CCM_TOOLS_PATH = "/index.php/tools/required";
+            var CCM_REL = "";
+        </script>
+
+        <script src="[##cms.cms.cdn##]/js/all.js"></script>
+        <script src="[##cms.cms.cdn##]/js/custom.js"></script>
+        <script src="[##cms.cms.cdn##]/js/smooth.scroll.js"></script>
+        <script src="[##cms.cms.cdn##]/js/rocket-loader.min.js" defer></script>
+        <script>
+            let filterBtn = document.querySelectorAll(".filterBtn");
+        
+    let catid = document.querySelector(".catid").innerHTML;
+            filterBtn.forEach((element) => {
+    let dataCat = element.getAttribute("data-catid")
+    if (dataCat==catid) {
+        element.classList.add("active");
+    }
+    // if( element.getAttribute("data-catid")==catid){
+    // console.log(element.getAttribute("data-catid"));
+    // console.log(element);
+    // console.log(element.getAttribute("data-catid"));
+
+    // }
+                element.addEventListener("click", function (params) {
+                    $(".filterBtn").removeClass("active");
+                    element.classList.add("active");
+                });
+            });
+            $(document).ready(function () {
+                $(".filterBtn").click(function (e) {
+                    var url4 = $(this).attr("data-project");
+                    $(".projectContainerLoad").load(url4);
+                });
+            });
+            const menu = document.getElementById("menu_wrapper");
+            (body = document.getElementsByTagName("body")[0]),
+                (menu.style.transform = `translateX(${body.clientWidth}px)`);
+            function openMenu() {
+                menu.style.transform = `translateX(0)`;
+            }
+            function closeMenu() {
+                menu.style.transform = `translateX(${body.clientWidth}px)`;
+            }
+
+            const searchBox = document.getElementById("search_wrapper_body");
+            (body = document.getElementsByTagName("body")[0]),
+                (searchBox.style.transform = `translateX(${body.clientWidth}px)`);
+            function openSearch() {
+                console.log("sss", searchBox);
+                searchBox.style.transform = `translateX(0)`;
+            }
+            function closeSearch() {
+                searchBox.style.transform = `translateX(${body.clientWidth + 1000}px)`;
+            }
+        </script>
+    </body>
+
+    </html>
